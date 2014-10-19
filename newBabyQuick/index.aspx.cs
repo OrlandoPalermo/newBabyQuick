@@ -1,4 +1,6 @@
-﻿using System;
+﻿using newBabyQuick.Classes;
+using newBabyQuick.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,7 @@ namespace newBabyQuick
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+         
         }
     }
 }

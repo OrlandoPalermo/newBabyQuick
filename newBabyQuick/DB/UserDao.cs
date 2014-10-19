@@ -36,7 +36,6 @@ namespace newBabyQuick
             command.Parameters.Add("@id_asp", SqlDbType.VarChar).Value = b.Id_asp;
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
-            Console.WriteLine("Ok !");
             bdd.getConnection().Close();
         }
 
@@ -58,7 +57,6 @@ namespace newBabyQuick
             command.Parameters.Add("@password", SqlDbType.VarChar).Value = p.Password;
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
-            Console.WriteLine("Ok !");
             bdd.getConnection().Close();
         }
 
