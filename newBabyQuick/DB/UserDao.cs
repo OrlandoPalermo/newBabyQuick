@@ -104,6 +104,24 @@ namespace newBabyQuick
             return m;
         }
 
+        public List<Babysitter> findAllBabySitter()
+        {
+            bdd.getConnection().Open();
+            SqlCommand command = new SqlCommand("SELECT nom,prenom,gsm,email,types_membre FROM Membre WHERE types_membre = 2", bdd.getConnection());
+            
+            SqlDataReader r = command.ExecuteReader();
+            List<Babysitter> m = new List<Babysitter>();
+            if (r.HasRows)
+            {
+                while (r.Read())
+                {
+                    short type = short.Parse(r["types_membre"].ToString());
 
+                    m.Add( new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, r["email"] as string));
+                }
+            }
+            bdd.getConnection().Close();
+            return m;
+        }
     }
 }
