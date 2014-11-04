@@ -14,10 +14,10 @@
         <div class="panel panel-primary">
             <div class="panel panel-heading text-center"><h3>Faire une demande</h3></div> 
             <div class="panel panel-body">
-                         <div id="tabBaby" class="col-lg-12" style="display: none;">
+                         <div class="col-lg-12">
                              <div class="row">
                                  <div class="col-lg-12">
-                                     <asp:DataGrid ID="listBaby" runat ="server" AutoGenerateColumns="false" OnSelectedIndexChanged="listBaby_SelectedIndexChanged" CssClass="table table-bordered">
+                                     <asp:DataGrid ID="listBaby" runat ="server" AutoGenerateColumns="false" OnSelectedIndexChanged="listBaby_SelectedIndexChanged" CssClass="table table-bordered hide">
                                          <Columns>
                                             <asp:BoundColumn DataField="nom" HeaderText="Nom"></asp:BoundColumn>
                                             <asp:BoundColumn DataField="prenom" HeaderText="Prénom"></asp:BoundColumn>
@@ -74,10 +74,10 @@
     <script>
         $(document).ready(function () {
             $("#indexP_btnVousMeme").change(function () {
-                $("#tabBaby").show();
+                $("#indexP_listBaby").removeClass("hide").addClass("show");
             });
             $("#indexP_btnInter").change(function () {
-                $("#tabBaby").hide();
+                $("#indexP_listBaby").removeClass("show").addClass("hide");
             });
 
             $("#indexP_listBaby td").click(function() {

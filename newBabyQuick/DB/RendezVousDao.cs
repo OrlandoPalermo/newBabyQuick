@@ -34,7 +34,7 @@ namespace tab_control
                     int idDemande = int.Parse(reader["id_demande"].ToString());
                     int idMembre = int.Parse(reader["id_membre"].ToString());
 
-                    RendezVous rendezV = new RendezVous(reader["date_emission"] as string, reader["date_prevu"] as string, reader["date_fin"] as string, idDemande, idBabysitter, idMembre);
+                    RendezVous rendezV = new RendezVous(reader["date_emission"] as string, reader["date_prevu"] as string, reader["date_fin"] as string, idBabysitter, idMembre, reader["note"] as string);
                     list.Add(rendezV);
                 }
             }
@@ -45,19 +45,44 @@ namespace tab_control
         public void add(RendezVous rdv)
         {
             bdd.getConnection().Open();
-            SqlCommand reqRdv = new SqlCommand("INSERT INTO RendezVous(date_emission, date_prevu, date_fin, id_demande, id_membre, note)" +
-            "VALUES(@dE, @dP, @dF, @iD, @iM, @n)", bdd.getConnection());
-            SqlCommand reqDemande = new SqlCommand("INSERT INTO Demande(id, id_babysitter) VALUES(@ID, @idB)", bdd.getConnection());
-            SqlParameter param = new SqlParameter("@ID", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
-            reqDemande.Parameters.Add("@idB", SqlDbType.Int).Value = rdv.IdBabysitter;
-            reqDemande.Parameters.Add(param);
-            reqDemande.ExecuteNonQuery();
-            
+            SqlCommand req = new SqlCommand("INSERT INTO RendezVous(date_emission, date_prevu, date_fin, id_membre, id_babysitter, note)" +
+            "VALUES(@dE, @dP, @dF, @iM, @idB, @n)", bdd.getConnection());
 
-            Console.WriteLine(param.Value);
+            req.Parameters.Add("@dE", SqlDbType.DateTime).Value = rdv.DateEmission;
+            req.Parameters.Add("@dP", SqlDbType.VarChar).Value = rdv.DatePrevu;
+            req.Parameters.Add("@dF", SqlDbType.VarChar).Value = rdv.Datefin;
+            req.Parameters.Add("@iM", SqlDbType.Int).Value = rdv.IdParent;
+            req.Parameters.Add("@idB", SqlDbType.Int).Value = rdv.IdBabysitter;
+            req.Parameters.Add("@n", SqlDbType.VarChar).Value = rdv.Note;
+
+            req.ExecuteNonQuery();
+
             bdd.getConnection().Close();
 
+        }
+
+        public List<RendezVous> getRendezVous(string emailBabysitter)
+        {
+            bdd.getConnection().Open();
+            List<RendezVous> list = new List<RendezVous>();
+
+            SqlCommand req = new SqlCommand("SELECT * FROM RendezVous WHERE id_babysitter = (SELECT id FROM Membre WHERE email = @email) AND accept = 0", bdd.getConnection());
+            req.Parameters.Add("@email", SqlDbType.VarChar).Value = emailBabysitter;
+            SqlDataReader reader = req.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int idBabysitter = int.Parse(reader["id_babysitter"].ToString());
+                    int idMembre = int.Parse(reader["id_membre"].ToString());
+
+                    RendezVous rendezV = new RendezVous(reader["date_emission"] as string, reader["date_prevu"] as string, reader["date_fin"] as string, idBabysitter, idMembre, reader["note"] as string);
+                    list.Add(rendezV);
+                }
+            }
+            bdd.getConnection().Close();
+            return list;
         }
     }
 }

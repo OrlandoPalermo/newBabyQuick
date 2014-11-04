@@ -9,22 +9,11 @@ namespace tab_control
     public class RendezVous
     {
         private String dateEmission, datePrevu, datefin;
-        int idDemandeur, idBabysitter, idParent;
+        int idBabysitter, idParent;
         short vu, accept;
+        string note;
 
-        public RendezVous(String dateEmi, String datePre, String dateF, int idDe, int idBa, int idP)
-        {
-            DateEmission = dateEmi;
-            DatePrevu = datePre;
-            Datefin = dateF;
-            IdDemandeur = idDe;
-            IdBabysitter = idBa;
-            IdParent = idP;
-            Vu = 0;
-            Accept = 0;
-        }
-
-        public RendezVous(String dateEmi, String datePre, String dateF, int idBa, int idP)
+        public RendezVous(String dateEmi, String datePre, String dateF, int idBa, int idP, string note)
         {
             DateEmission = dateEmi;
             DatePrevu = datePre;
@@ -33,6 +22,7 @@ namespace tab_control
             IdParent = idP;
             Vu = 0;
             Accept = 0;
+            Note = note;
         }
 
         public RendezVous(String dateEmi, String datePre, String dateF)
@@ -72,12 +62,6 @@ namespace tab_control
             set { idBabysitter = value; }
         }
 
-        public int IdDemandeur
-        {
-            get { return idDemandeur; }
-            set { idDemandeur = value; }
-        }
-
         public short Vu
         {
             get { return vu; }
@@ -90,6 +74,11 @@ namespace tab_control
             set { accept = value; }
         }
 
+        public string Note
+        {
+            get { return note; }
+            set { note = value; }
+        }
 
     }
 }

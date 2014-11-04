@@ -13,7 +13,14 @@ namespace newBabyQuick
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+            if (Session["errorSession"] != null)
+            {
+                Bdd bdd = Bdd.getInstance();
+                UserDao uDao = new UserDao(bdd);
+
+                Session["membre"] = uDao.getMembre(Context.User.Identity.Name);
+                Session["errorSession"] = null;
+            }
         }
     }
 }

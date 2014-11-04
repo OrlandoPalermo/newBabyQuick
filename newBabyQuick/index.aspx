@@ -59,10 +59,20 @@
                 </div>
 
                     <% } else if (m.Type == 2){%>
-                            coucou babysitter
+                        <div class="container" style="position: relative; top: 15px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h3>Panneau babysitter</h3></div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6"><a href="Demande.aspx" class="btn btn-default">Consulter ses demandes</a></div>
+                                        <div class="col-lg-6"><a class="btn btn-default">Messages <span class="glyphicon glyphicon-envelope"></span></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                 <% } } else {
-                        Response.Write("Erreur session");
-            
+                       Session["errorSession"] = 1;
+                       Response.Redirect("index.aspx");
                  } %>
                   
                 

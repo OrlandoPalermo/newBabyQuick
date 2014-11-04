@@ -184,6 +184,7 @@
     </Content>
     <Content Include="MainPage.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Demande.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -404,6 +405,13 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Classes\Parent.cs" />
+    <Compile Include="Demande.aspx.cs">
+      <DependentUpon>Demande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demande.aspx.designer.cs">
+      <DependentUpon>Demande.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>

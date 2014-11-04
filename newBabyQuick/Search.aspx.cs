@@ -30,7 +30,7 @@ namespace newBabyQuick
                 String datePr = dateP.Text;
                 String dateFi = dateF.Text;
                 int idB = uD.getMembre(mailSelected.Text).Id;
-                RendezVous rdv = new RendezVous(DateTime.Now.ToString(), datePr, dateFi, m.Id, idB);
+                RendezVous rdv = new RendezVous(DateTime.Now.ToString(), datePr, dateFi, idB, m.Id, listMotifs.Text);
                 RendezVousDao rdvDao = new RendezVousDao(bdd);
                 rdvDao.add(rdv);
             }
