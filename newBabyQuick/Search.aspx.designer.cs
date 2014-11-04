@@ -13,13 +13,13 @@ namespace newBabyQuick {
     public partial class Search {
         
         /// <summary>
-        /// Contrôle  btnVousMeme.
+        /// Contrôle btnVousMeme.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton  btnVousMeme;
+        protected global::System.Web.UI.WebControls.RadioButton btnVousMeme;
         
         /// <summary>
         /// Contrôle btnInter.
@@ -38,5 +38,50 @@ namespace newBabyQuick {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid listBaby;
+        
+        /// <summary>
+        /// Contrôle dateP.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dateP;
+        
+        /// <summary>
+        /// Contrôle dateF.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dateF;
+        
+        /// <summary>
+        /// Contrôle listMotifs.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox listMotifs;
+        
+        /// <summary>
+        /// Contrôle mailSelected.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox mailSelected;
+        
+        /// <summary>
+        /// Contrôle submit_demande.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submit_demande;
     }
 }

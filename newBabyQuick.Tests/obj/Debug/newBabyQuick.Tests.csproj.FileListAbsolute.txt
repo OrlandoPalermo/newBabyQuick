@@ -38,3 +38,43 @@ D:\Users\Alexandre\Documents\Helha\InformatiqueGestion_3\Projet\newBabyQuick\new
 D:\Users\Alexandre\Documents\Helha\InformatiqueGestion_3\Projet\newBabyQuick\newBabyQuick.Tests\obj\Debug\newBabyQuick.Tests.csprojResolveAssemblyReference.cache
 D:\Users\Alexandre\Documents\Helha\InformatiqueGestion_3\Projet\newBabyQuick\newBabyQuick.Tests\obj\Debug\newBabyQuick.Tests.dll
 D:\Users\Alexandre\Documents\Helha\InformatiqueGestion_3\Projet\newBabyQuick\newBabyQuick.Tests\obj\Debug\newBabyQuick.Tests.pdb
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\newBabyQuick.Tests.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\newBabyQuick.Tests.pdb
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\newBabyQuick.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\System.Web.Optimization.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Owin.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\EntityFramework.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Security.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.FriendlyUrls.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Newtonsoft.Json.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\newBabyQuick.pdb
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\System.Web.Optimization.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\EntityFramework.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Security.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.AspNet.FriendlyUrls.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\Microsoft.AspNet.Identity.Core.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\Microsoft.AspNet.Identity.Owin.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\System.Web.Optimization.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\Microsoft.Owin.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\Microsoft.Owin.Host.SystemWeb.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\EntityFramework.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\Microsoft.Owin.Security.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\bin\Debug\fr\Microsoft.AspNet.FriendlyUrls.resources.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\obj\Debug\newBabyQuick.Tests.csprojResolveAssemblyReference.cache
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\obj\Debug\newBabyQuick.Tests.dll
+E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick.Tests\obj\Debug\newBabyQuick.Tests.pdb

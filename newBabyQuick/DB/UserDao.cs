@@ -75,10 +75,10 @@ namespace newBabyQuick
 
         public Membre getMembre(String email)
         {
-   
+            bdd.getConnection().Close();
             bdd.getConnection().Open();
 
-            SqlCommand command = new SqlCommand("SELECT nom, prenom, types_membre, gsm, date_dispo, nb_enfants FROM Membre WHERE email = @email", bdd.getConnection());
+            SqlCommand command = new SqlCommand("SELECT id, nom, prenom, types_membre, gsm, date_dispo, nb_enfants FROM Membre WHERE email = @email", bdd.getConnection());
             command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             SqlDataReader r = command.ExecuteReader();
             Membre m = null;
@@ -93,9 +93,11 @@ namespace newBabyQuick
                         case 1:
                             short nbE = short.Parse(r["nb_enfants"].ToString());
                             m = new Parent(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, nbE);
+                            m.Id = int.Parse(r["id"].ToString());
                             break;
                         case 2:
                             m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, r["date_dispo"] as string);
+                            m.Id = int.Parse(r["id"].ToString());
                             break;
                     }
                 }

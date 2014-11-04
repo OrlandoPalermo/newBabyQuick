@@ -354,6 +354,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\Demande.cs" />
+    <Compile Include="Classes\RendezVous.cs" />
     <Compile Include="Connexion.aspx.cs">
       <DependentUpon>Connexion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -371,6 +372,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DB\DemandeDao.cs" />
+    <Compile Include="DB\RendezVousDao.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
