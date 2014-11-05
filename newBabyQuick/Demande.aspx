@@ -18,12 +18,33 @@
 
     <script>
         $(function () {
+            var indexRowSelected;
+
+            $("#indexP_demandes tr:not(:eq(0))").click(function () {
+                indexRowSelected = $("#indexP_demandes tr").index(this);
+            });
 
             $("#indexP_demandes tr:not(:eq(0))").popover({
                 html: true,
                 content: function () {
                     $.get("Ajax/AjaxInfoDemande.aspx?info=9", function (data) {
-                        $(".popover-content").html(data);
+                        $(".popover-content").html(data + '<div class="text-center"><asp:Button runat="server" Text="Accepter" CssClass="btn btn-success" ID="Accept" /></div>');
+
+                        $("#indexP_Accept").click(function (e) {
+                            e.preventDefault();
+
+                            $.get("Ajax/AjaxInfoDemande?info=9&accept=1", function () {
+                                $(".popover-content").html("<div class='alert alert-success'>Cette demande a été accepté</div>");
+                                setTimeout(function () {
+                                    $(".popover").slideUp();
+
+                                    setTimeout(function () {
+                                        $("#indexP_demandes tr").eq(indexRowSelected).fadeOut();
+                                    }, 500);
+                                }, 1500);
+                                
+                            });
+                        })
                     });
                 },
                 placement: "bottom",

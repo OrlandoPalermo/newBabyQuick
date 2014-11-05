@@ -107,5 +107,17 @@ namespace tab_control
             bdd.getConnection().Close();
             return null;
         }
+
+        public void accepted(int idRdv)
+        {
+            bdd.getConnection().Open();
+
+            SqlCommand req = new SqlCommand("UPDATE RendezVous SET accept = 1 WHERE id = @id", bdd.getConnection());
+            req.Parameters.Add("@id", SqlDbType.Int).Value = idRdv;
+
+            req.ExecuteNonQuery();
+
+            bdd.getConnection().Close();
+        }
     }
 }
