@@ -84,5 +84,28 @@ namespace tab_control
             bdd.getConnection().Close();
             return list;
         }
+
+        public RendezVous getRendezVous(int idRdv)
+        {
+            bdd.getConnection().Open();
+
+            SqlCommand req = new SqlCommand("SELECT * FROM RendezVous WHERE id = @id", bdd.getConnection());
+            req.Parameters.Add("@id", SqlDbType.Int).Value = idRdv;
+            SqlDataReader reader = req.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int idBabysitter = int.Parse(reader["id_babysitter"].ToString());
+                    int idMembre = int.Parse(reader["id_membre"].ToString());
+
+                    RendezVous rendezV = new RendezVous(reader["date_emission"] as string, reader["date_prevu"] as string, reader["date_fin"] as string, idBabysitter, idMembre, reader["note"] as string);
+                    return rendezV;
+                }
+            }
+            bdd.getConnection().Close();
+            return null;
+        }
     }
 }

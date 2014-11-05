@@ -167,6 +167,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Ajax\AjaxInfoDemande.aspx" />
     <Content Include="Connexion.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -342,6 +343,19 @@
     </Compile>
     <Compile Include="ActivityDesigner1.xaml.cs">
       <DependentUpon>ActivityDesigner1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\AjaxInfoDemande.aspx.cs">
+      <DependentUpon>AjaxInfoDemande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\AjaxInfoDemande.aspx.designer.cs">
+      <DependentUpon>AjaxInfoDemande.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\InfoDemande.asp.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\InfoDemande.asp.designer.cs">
+      <DependentUpon>InfoDemande.asp.cs</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

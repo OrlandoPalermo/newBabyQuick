@@ -106,6 +106,39 @@ namespace newBabyQuick
             return m;
         }
 
+        public Membre getMembre(int id)
+        {
+            bdd.getConnection().Close();
+            bdd.getConnection().Open();
+
+            SqlCommand command = new SqlCommand("SELECT email, nom, prenom, types_membre, gsm, date_dispo, nb_enfants FROM Membre WHERE id = @id", bdd.getConnection());
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            SqlDataReader r = command.ExecuteReader();
+            Membre m = null;
+            if (r.HasRows)
+            {
+                while (r.Read())
+                {
+                    short type = short.Parse(r["types_membre"].ToString());
+
+                    switch (type)
+                    {
+                        case 1:
+                            short nbE = short.Parse(r["nb_enfants"].ToString());
+                            m = new Parent(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, r["email"] as string, nbE);
+                            m.Id = id;
+                            break;
+                        case 2:
+                            m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, r["email"] as string, r["date_dispo"] as string);
+                            m.Id = id;
+                            break;
+                    }
+                }
+            }
+            bdd.getConnection().Close();
+            return m;
+        }
+
         public List<Babysitter> findAllBabySitter()
         {
             bdd.getConnection().Open();
