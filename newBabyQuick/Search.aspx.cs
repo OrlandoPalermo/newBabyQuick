@@ -22,17 +22,29 @@ namespace newBabyQuick
 
             listBaby.DataSource = babysitter;
             listBaby.DataBind();
-
+            
             if (Page.IsPostBack)
             {
-                Console.WriteLine(Session.ToString());
+                RendezVous rdv = null;
                 newBabyQuick.Membre m = Session["membre"] as newBabyQuick.Membre;
                 String datePr = dateP.Text;
                 String dateFi = dateF.Text;
-                int idB = uD.getMembre(mailSelected.Text).Id;
-                RendezVous rdv = new RendezVous(DateTime.Now.ToString(), datePr, dateFi, idB, m.Id, listMotifs.Text);
-                RendezVousDao rdvDao = new RendezVousDao(bdd);
-                rdvDao.add(rdv);
+                if (btnVousMeme.Checked)
+                {
+                    int idB = uD.getMembre(mailSelected.Text).Id;
+                    rdv = new RendezVous(DateTime.Now.ToString(), datePr, dateFi, idB, m.Id, listMotifs.Text);
+                }
+                else if (btnInter.Checked)
+                {
+                    rdv = new RendezVous(DateTime.Now.ToString(), datePr, dateFi, m.Id, listMotifs.Text);
+                }
+
+                if (rdv != null)
+                {
+                    RendezVousDao rdvDao = new RendezVousDao(bdd);
+                    rdvDao.add(rdv);
+                }
+                
             }
             
                 

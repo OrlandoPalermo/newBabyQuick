@@ -45,6 +45,7 @@ namespace tab_control
         public void add(RendezVous rdv)
         {
             bdd.getConnection().Open();
+            
             SqlCommand req = new SqlCommand("INSERT INTO RendezVous(date_emission, date_prevu, date_fin, id_membre, id_babysitter, note)" +
             "VALUES(@dE, @dP, @dF, @iM, @idB, @n)", bdd.getConnection());
 
@@ -66,7 +67,7 @@ namespace tab_control
             bdd.getConnection().Open();
             List<RendezVous> list = new List<RendezVous>();
 
-            SqlCommand req = new SqlCommand("SELECT * FROM RendezVous WHERE id_babysitter = (SELECT id FROM Membre WHERE email = @email) AND accept = 0", bdd.getConnection());
+            SqlCommand req = new SqlCommand("SELECT * FROM RendezVous WHERE id_babysitter = (SELECT id FROM Membre WHERE email = @email) AND accept IS NULL", bdd.getConnection());
             req.Parameters.Add("@email", SqlDbType.VarChar).Value = emailBabysitter;
             SqlDataReader reader = req.ExecuteReader();
 
@@ -78,6 +79,7 @@ namespace tab_control
                     int idMembre = int.Parse(reader["id_membre"].ToString());
 
                     RendezVous rendezV = new RendezVous(reader["date_emission"] as string, reader["date_prevu"] as string, reader["date_fin"] as string, idBabysitter, idMembre, reader["note"] as string);
+                    rendezV.Id = int.Parse(reader["id"].ToString());
                     list.Add(rendezV);
                 }
             }
@@ -113,6 +115,18 @@ namespace tab_control
             bdd.getConnection().Open();
 
             SqlCommand req = new SqlCommand("UPDATE RendezVous SET accept = 1 WHERE id = @id", bdd.getConnection());
+            req.Parameters.Add("@id", SqlDbType.Int).Value = idRdv;
+
+            req.ExecuteNonQuery();
+
+            bdd.getConnection().Close();
+        }
+
+        public void refused(int idRdv)
+        {
+            bdd.getConnection().Open();
+
+            SqlCommand req = new SqlCommand("UPDATE RendezVous SET id_babysitter = null WHERE id = @id", bdd.getConnection());
             req.Parameters.Add("@id", SqlDbType.Int).Value = idRdv;
 
             req.ExecuteNonQuery();

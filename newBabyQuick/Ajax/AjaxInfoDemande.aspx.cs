@@ -18,10 +18,13 @@ namespace newBabyQuick
 
             int idRdv = int.Parse(Request.QueryString["info"]);
             
-
             if (Request.QueryString["accept"] != null)
             {
                 rdvDao.accepted(idRdv);
+            }
+            else if (Request.QueryString["refuser"] != null)
+            {
+                rdvDao.refused(idRdv);
             }
             else
             {

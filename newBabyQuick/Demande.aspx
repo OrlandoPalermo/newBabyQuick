@@ -8,6 +8,7 @@
             <div class="panel-body">
                 <asp:DataGrid runat="server" CssClass="table table-bordered" data-toggle="popover" data-placement="top" ID="demandes" AutoGenerateColumns="false">
                     <Columns>
+                        <asp:BoundColumn DataField="Id" Visible="false"></asp:BoundColumn>
                         <asp:BoundColumn DataField="DatePrevu" HeaderText="Date prévu"></asp:BoundColumn>
                         <asp:BoundColumn DataField="DateFin" HeaderText="Date de fin"></asp:BoundColumn>
                     </Columns>
@@ -15,41 +16,57 @@
                 </div>
             </div>
     </div>
-
+    <asp:TextBox runat="server" ID="Test" Text="dd"></asp:TextBox>
     <script>
         $(function () {
             var indexRowSelected;
 
             $("#indexP_demandes tr:not(:eq(0))").click(function () {
                 indexRowSelected = $("#indexP_demandes tr").index(this);
-            });
 
-            $("#indexP_demandes tr:not(:eq(0))").popover({
-                html: true,
-                content: function () {
-                    $.get("Ajax/AjaxInfoDemande.aspx?info=9", function (data) {
-                        $(".popover-content").html(data + '<div class="text-center"><asp:Button runat="server" Text="Accepter" CssClass="btn btn-success" ID="Accept" /></div>');
+                $("#indexP_demandes tr:not(:eq(" + indexRowSelected + "))").popover({
+                    html: true,
+                    content: function () {
+                        $.get("Ajax/AjaxInfoDemande.aspx?info=<% =demandes.Items[1].Cells[0].Text%>", function (data) {
+                            $(".popover-content").html(data + '<div class="text-center"><asp:Button runat="server" Text="Accepter" CssClass="btn btn-success" ID="Accept" style="margin-right: 1px; margin-left: 1px;" /><asp:Button runat="server" Text="Refuser" CssClass="btn btn-danger" ID="Refuser" style="margin-right: 1px; margin-left: 1px;" /></div>');
 
-                        $("#indexP_Accept").click(function (e) {
-                            e.preventDefault();
+                            $("#indexP_Accept").click(function (e) {
+                                e.preventDefault();
 
-                            $.get("Ajax/AjaxInfoDemande?info=9&accept=1", function () {
-                                $(".popover-content").html("<div class='alert alert-success'>Cette demande a été accepté</div>");
-                                setTimeout(function () {
-                                    $(".popover").slideUp();
-
+                                $.get("Ajax/AjaxInfoDemande?info=9&accept=1", function () {
+                                    $(".popover-content").html("<div class='alert alert-success'>Cette demande a été accepté</div>");
                                     setTimeout(function () {
-                                        $("#indexP_demandes tr").eq(indexRowSelected).fadeOut();
-                                    }, 500);
-                                }, 1500);
-                                
+                                        $(".popover").slideUp();
+
+                                        setTimeout(function () {
+                                            $("#indexP_demandes tr").eq(indexRowSelected).fadeOut();
+                                        }, 500);
+                                    }, 1500);
+
+                                });
                             });
-                        })
-                    });
-                },
-                placement: "bottom",
-                title: "Demande"
+
+                            $("#indexP_Refuser").click(function (e) {
+                                e.preventDefault();
+                                $.get("Ajax/AjaxInfoDemande?info=9&refuser=1", function () {
+                                    $(".popover-content").html("<div class='alert alert-primary'>Cette demande a été refusée</div>");
+                                    setTimeout(function () {
+                                        $(".popover").slideUp();
+
+                                        setTimeout(function () {
+                                            $("#indexP_demandes tr").eq(indexRowSelected).fadeOut();
+                                        }, 500);
+                                    }, 1500);
+                                });
+                            });
+                        });
+                    },
+                    placement: "bottom",
+                    title: "Demande"
+                });
             });
+
+            
 
             $("#indexP_demandes tr:not(:eq(0))").mouseover(function () {
                 for (var i = 1; i < $(this).parent().children().length; i++) {
