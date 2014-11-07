@@ -13,22 +13,22 @@ namespace newBabyQuick.PageBabysitter {
     public partial class Demande {
         
         /// <summary>
-        /// Contrôle demandes.
+        /// Contrôle demandesG.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid demandes;
+        protected global::System.Web.UI.WebControls.GridView demandesG;
         
         /// <summary>
-        /// Contrôle Test.
+        /// Contrôle IdSelected.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Test;
+        protected global::System.Web.UI.WebControls.TextBox IdSelected;
         
         /// <summary>
         /// Contrôle Accept.

@@ -18,10 +18,9 @@ namespace newBabyQuick.PageBabysitter
             rDao = new RendezVousDao(bdd);
 
             List<RendezVous> rdvs = rDao.getRendezVous(Context.User.Identity.Name);
-            demandes.DataSource = rdvs;
-            demandes.DataBind();
+            demandesG.DataSource = rdvs;
+            demandesG.DataBind();
             
         }
-
     }
 }
