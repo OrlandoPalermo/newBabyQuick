@@ -219,6 +219,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Search.aspx" />
+    <Content Include="ServiceMail.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -368,7 +369,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Classes\AdminC.cs" />
     <Compile Include="Classes\Demande.cs" />
+    <Compile Include="Classes\Intermediaire.cs" />
+    <Compile Include="Classes\MailSender.cs" />
+    <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\RendezVous.cs" />
     <Compile Include="Connexion.aspx.cs">
       <DependentUpon>Connexion.aspx</DependentUpon>
@@ -387,6 +392,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DB\DemandeDao.cs" />
+    <Compile Include="DB\MessageDao.cs" />
     <Compile Include="DB\RendezVousDao.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -433,6 +439,13 @@
     </Compile>
     <Compile Include="Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceMail.aspx.cs">
+      <DependentUpon>ServiceMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceMail.aspx.designer.cs">
+      <DependentUpon>ServiceMail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

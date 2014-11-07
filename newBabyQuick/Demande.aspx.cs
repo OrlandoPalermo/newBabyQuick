@@ -20,7 +20,6 @@ namespace newBabyQuick.PageBabysitter
             List<RendezVous> rdvs = rDao.getRendezVous(Context.User.Identity.Name);
             demandes.DataSource = rdvs;
             demandes.DataBind();
-            String hell = demandes.Items[1].Cells[0].Text;
             
         }
 
