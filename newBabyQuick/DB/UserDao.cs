@@ -91,6 +91,10 @@ namespace newBabyQuick
                    
                     switch (type)
                     {
+                        case 0:
+                            m = new AdminC(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, "null");
+                            m.Id = int.Parse(r["id"].ToString());
+                            break;
                         case 1:
                             short nbE = short.Parse(r["nb_enfants"].ToString());
                             m = new Parent(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, nbE);
@@ -98,6 +102,10 @@ namespace newBabyQuick
                             break;
                         case 2:
                             m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, r["date_dispo"] as string);
+                            m.Id = int.Parse(r["id"].ToString());
+                            break;
+                        case 3:
+                            m = new Intermediaire(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, "null");
                             m.Id = int.Parse(r["id"].ToString());
                             break;
                     }

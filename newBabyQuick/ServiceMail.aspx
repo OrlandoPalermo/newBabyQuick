@@ -23,9 +23,26 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="row">
-                            <div class="col-lg-12 text-center"><h4>Sujets <asp:Label runat="server" ID="badge" CssClass="badge"></asp:Label></h4></div>
+                            <div class="col-lg-12 text-center">
+                                <h4>Sujets 
+                                    <asp:UpdatePanel runat="server">
+                                        <ContentTemplate>
+                                            <asp:Label runat="server" ID="badge" CssClass="badge"></asp:Label>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>    
+                                </h4>
+                            </div>
                             <div class="col-lg-12">
-                                  <asp:BulletedList runat="server" ID="ListMail" CssClass="list-unstyled" OnClick="ListMail_Click" DisplayMode="LinkButton"></asp:BulletedList>
+                                <asp:Timer runat="server" Id="timerList" OnTick="timerList_Tick" Interval="5000"></asp:Timer>
+                                <asp:UpdatePanel runat="server">
+                                    <ContentTemplate>
+                                        <asp:BulletedList runat="server" ID="ListMail" CssClass="list-unstyled" OnClick="ListMail_Click" DisplayMode="LinkButton"></asp:BulletedList>
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="timerList" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                                  
                             </div>
                       
                         </div>
@@ -44,7 +61,8 @@
                                               <asp:AsyncPostBackTrigger ControlID="ListMail" EventName="Click" />
                                           </Triggers>
                                           <ContentTemplate>
-                                              <div class="col-lg-12"><h5 style="display: inline-block;">Sujet : </h5><asp:Label runat="server" ID="Subject" /><div class="pull-right"><asp:Button runat="server" CssClass="btn btn-danger" Text="Supprimer"/></div></div>
+                                              <asp:TextBox runat="server" ID="Id" Visible="false"></asp:TextBox>
+                                              <div class="col-lg-12"><h5 style="display: inline-block;">Sujet : </h5><asp:Label runat="server" ID="Subject" /><div class="pull-right"><asp:Button runat="server" CssClass="btn btn-danger" Text="Supprimer" ID="deleteMail" OnClick="deleteMail_Click"/></div></div>
                                                    <label class="col-lg-12"><h5 style="display: inline-block;">De : </h5><asp:Label runat="server" ID="From" /></label>
                                                    <div class="col-lg-12">
                                                            <h5>Contenu : </h5>
@@ -60,29 +78,26 @@
                     </div>
                 </div>
             </div>
-            <div class="row hide" id="write">
-                <div class="row text-center">
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-l-12">
-                                Sujet
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-l-12">
-                                Destinataire
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-l-12">
-                                Contenu
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="hide col-lg-offset-5 col-sm-offset-5 col-md-offset-5" id="write">
+                    <div class="form-group">
+                        <label for="indexP_sujetW">Sujet :</label><asp:TextBox runat="server" ID="sujetW" CssClass="form-control"></asp:TextBox>
                     </div>
+                    <div class="form-group">
+                        <label for="indexP_destW">Destinataire :</label><asp:TextBox runat="server" ID="destW" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                         <label for="indexP_contenuW">Contenu : </label><asp:TextBox runat="server" TextMode="MultiLine" ID="contenuW" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <asp:Button runat="server" ID="sendMail" CssClass="btn btn-success" Text="Envoyer" OnClick="sendMail_Click"/>
+                    </div>          
                 </div>
+                <div class="col-lg-5"></div>
             </div>
+            </div>
+            
         </div>
-     </div>
 
     <script>
         $(function () {
