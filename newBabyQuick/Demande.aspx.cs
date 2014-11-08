@@ -17,10 +17,15 @@ namespace newBabyQuick.PageBabysitter
             bdd = Bdd.getInstance();
             rDao = new RendezVousDao(bdd);
 
+            tickDemandes_Tick(null, null);
+            
+        }
+
+        protected void tickDemandes_Tick(object sender, EventArgs e)
+        {
             List<RendezVous> rdvs = rDao.getRendezVous(Context.User.Identity.Name);
             demandesG.DataSource = rdvs;
             demandesG.DataBind();
-            
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainPage.master.cs" Inherits="newBabyQuick.MainPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainPage.master.cs" Inherits="newBabyQuick.MainPage"%>
 
 <!DOCTYPE html>
 
@@ -18,6 +18,7 @@
     <script src="Scripts/jqueryUI/jquery-ui.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <form id="form1" class="form-horizontal" runat="server">
+        <asp:ScriptManager runat="server" ID="mainScritM"></asp:ScriptManager>
     <div style="background: snow;">
         <!-- Header -->
         <div class="container" style="padding-top: 20px;">
@@ -25,7 +26,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.aspx">Accueil</a></li>
                 </ul>
-                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                <asp:LoginView runat="server" ID="LoginView" ViewStateMode="Disabled" EnableViewState="True">
                     <AnonymousTemplate>
                         <ul class="pull-right nav navbar-nav">
                             <li><a href="Inscription.aspx">Inscription</a></li>
@@ -34,12 +35,29 @@
                         </AnonymousTemplate>
                      <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
+                               
+                                <li class="navbar-text">
+                                        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+
+                                            <ContentTemplate>
+                                                <asp:Timer runat="server" ID="timerNotifs" OnTick="timerNotifs_Tick" Interval="5000"></asp:Timer>
+                                                <asp:LinkButton runat="server" ID="notif" data-toggle="popover" OnClientClick="return false;" OnClick="notif_Click">
+                                                    <span class="glyphicon glyphicon-globe"></span><asp:Label runat="server" ID="badgeNotifs" CssClass="badge">0</asp:Label>
+                                                    <asp:BulletedList runat="server" ID="dataNotif" CssClass="hidden"></asp:BulletedList>
+                                                </asp:LinkButton>
+                                            </ContentTemplate>
+                                            <Triggers>
+                                                <asp:AsyncPostBackTrigger ControlID="timerNotifs" />
+                                            </Triggers>
+                                        </asp:UpdatePanel>
+                                </li>
                                 <li><a href="ServiceMail.aspx">Mes messages <span class="glyphicon glyphicon-envelope"></span></a></li>
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Bienvenue, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/index.aspx" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
+                         
                         </LoggedInTemplate>
                     </asp:LoginView>
             </nav>
@@ -54,6 +72,89 @@
         <footer class="navbar navbar-default navbar-fixed-bottom">
             <p class="navbar-text pull-right">Crée par Orlando Palermo & Alexandre Brosteau</p>
         </footer>
+
+        <script type="text/javascript">
+            function pageLoad() {
+                $("#LoginView_notif").popover({
+                    html: true,
+                    content: function () {
+                        var dataList = $("#LoginView_dataNotif");
+
+                        dataList.children().each(function () {
+                            $(this).wrapInner("<div class='well well-sm' style='width: 200px'></div>");
+                        });
+
+
+
+                        return $("#LoginView_dataNotif").html();
+                    },
+                    placement: "bottom",
+                    title: "Notifications"
+                });
+
+                var indexRowSelected = 0;
+                var oldIndexSelected = 0;
+
+                $("#indexP_demandesG tr:not(:eq(0))").popover({
+                    html: true,
+                    content: function () {
+
+                        indexRowSelected = $("#indexP_demandesG tr").index(this);
+                        var idSelected = $(this).children().eq(0).text();
+
+                        var popovers = $(".popover");
+
+                        $(".popover:visible").remove();
+
+                        $.get("Ajax/AjaxInfoDemande.aspx?info=" + idSelected, function (data) {
+                            $(".popover-content").html(data + '<div class="text-center"><asp:Button runat="server" Text="Accepter" CssClass="btn btn-success" ID="Accept" style="margin-right: 1px; margin-left: 1px;" /><asp:Button runat="server" Text="Refuser" CssClass="btn btn-danger" ID="Refuser" style="margin-right: 1px; margin-left: 1px;" /></div>');
+
+                            $("#indexP_Accept").click(function (e) {
+                                e.preventDefault();
+
+                                $.get("Ajax/AjaxInfoDemande?info=" + idSelected + "&accept=1", function () {
+                                    $(".popover-content").html("<div class='alert alert-success'>Cette demande a été accepté</div>");
+                                    setTimeout(function () {
+                                        $(".popover").slideUp();
+
+                                        setTimeout(function () {
+                                            $("#indexP_demandesG tr").eq(indexRowSelected).fadeOut();
+                                        }, 500);
+                                    }, 1500);
+
+                                });
+                            });
+
+                            $("#indexP_Refuser").click(function (e) {
+                                e.preventDefault();
+                                $.get("Ajax/AjaxInfoDemande?info=" + idSelected + "&refuser=1", function () {
+                                    $(".popover-content").html("<div class='alert alert-primary'>Cette demande a été refusée</div>");
+                                    setTimeout(function () {
+                                        $(".popover").slideUp();
+
+                                        setTimeout(function () {
+                                            $("#indexP_demandesG tr").eq(indexRowSelected).fadeOut();
+                                        }, 500);
+                                    }, 1500);
+                                });
+                            });
+                        });
+                        oldIndexSelected = indexRowSelected;
+                    },
+                    placement: "bottom",
+                    title: "Demande"
+                });
+
+                $("#indexP_demandesG tr:not(:eq(0))").mouseover(function () {
+                    for (var i = 1; i < $(this).parent().children().length; i++) {
+                        $(this).parent().children().eq(i).css("background-color", "snow");
+                    }
+
+                    $(this).css("background-color", "gainsboro");
+                    $(this).css("cursor", "pointer");
+                });
+            }
+         </script>
     </form>
    
 </body>

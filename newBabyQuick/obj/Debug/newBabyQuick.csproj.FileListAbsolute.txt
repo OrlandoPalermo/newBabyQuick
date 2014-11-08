@@ -131,7 +131,6 @@ H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\ne
 H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\bin\fr\Microsoft.Owin.Security.Google.resources.dll
 H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\bin\fr\Microsoft.Owin.Security.Twitter.resources.dll
 H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\bin\fr\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\obj\Debug\newBabyQuick.csprojResolveAssemblyReference.cache
 H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\obj\Debug\ActivityDesigner1.baml
 H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\obj\Debug\ActivityDesigner1.g.cs
 H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\obj\Debug\newBabyQuick_MarkupCompile.cache
@@ -278,3 +277,4 @@ E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBaby
 E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick\obj\Debug\newBabyQuick.g.resources
 E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick\obj\Debug\newBabyQuick.dll
 E:\Orlando\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\newBabyQuick\obj\Debug\newBabyQuick.pdb
+H:\Google Drive\School\3- Third Year\Visual Studio 2013\Projects\newBabyQuick\newBabyQuick\obj\Debug\newBabyQuick.csprojResolveAssemblyReference.cache

@@ -13,6 +13,15 @@ namespace newBabyQuick.PageBabysitter {
     public partial class Demande {
         
         /// <summary>
+        /// Contrôle tickDemandes.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.Timer tickDemandes;
+        
+        /// <summary>
         /// Contrôle demandesG.
         /// </summary>
         /// <remarks>
@@ -20,32 +29,5 @@ namespace newBabyQuick.PageBabysitter {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView demandesG;
-        
-        /// <summary>
-        /// Contrôle IdSelected.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IdSelected;
-        
-        /// <summary>
-        /// Contrôle Accept.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Accept;
-        
-        /// <summary>
-        /// Contrôle Refuser.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Refuser;
     }
 }

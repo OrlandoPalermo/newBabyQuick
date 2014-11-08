@@ -5,7 +5,7 @@
     <script runat="server">
        
     </script>
-    <asp:ScriptManager runat="server" ID="scriptManager"></asp:ScriptManager>
+
     <div class="container" style="position: relative; top: 15px;">
         <div class="panel panel-default">
             <div class="panel-heading text-center"><h3>Service mail</h3>
@@ -33,9 +33,10 @@
                                 </h4>
                             </div>
                             <div class="col-lg-12">
-                                <asp:Timer runat="server" Id="timerList" OnTick="timerList_Tick" Interval="5000"></asp:Timer>
+                               
                                 <asp:UpdatePanel runat="server">
                                     <ContentTemplate>
+                                         <asp:Timer runat="server" Id="timerList" OnTick="timerList_Tick" Interval="4000"></asp:Timer>
                                         <asp:BulletedList runat="server" ID="ListMail" CssClass="list-unstyled" OnClick="ListMail_Click" DisplayMode="LinkButton"></asp:BulletedList>
                                     </ContentTemplate>
                                     <Triggers>

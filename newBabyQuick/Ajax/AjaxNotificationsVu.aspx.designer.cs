@@ -11,7 +11,7 @@ namespace newBabyQuick.Ajax
 {
 
 
-    public partial class InfoDemande
+    public partial class AjaxNotificationsVu
     {
 
         /// <summary>

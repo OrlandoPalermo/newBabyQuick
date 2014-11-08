@@ -168,6 +168,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Ajax\AjaxInfoDemande.aspx" />
+    <Content Include="Ajax\AjaxNotificationsVu.aspx" />
     <Content Include="Connexion.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -352,11 +353,12 @@
     <Compile Include="Ajax\AjaxInfoDemande.aspx.designer.cs">
       <DependentUpon>AjaxInfoDemande.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ajax\InfoDemande.asp.cs">
+    <Compile Include="Ajax\AjaxNotificationsVu.aspx.cs">
+      <DependentUpon>AjaxNotificationsVu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ajax\InfoDemande.asp.designer.cs">
-      <DependentUpon>InfoDemande.asp.cs</DependentUpon>
+    <Compile Include="Ajax\AjaxNotificationsVu.aspx.designer.cs">
+      <DependentUpon>AjaxNotificationsVu.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -374,6 +376,7 @@
     <Compile Include="Classes\Intermediaire.cs" />
     <Compile Include="Classes\MailSender.cs" />
     <Compile Include="Classes\Message.cs" />
+    <Compile Include="Classes\NotificationLive.cs" />
     <Compile Include="Classes\RendezVous.cs" />
     <Compile Include="Connexion.aspx.cs">
       <DependentUpon>Connexion.aspx</DependentUpon>
@@ -393,6 +396,7 @@
     </Compile>
     <Compile Include="DB\DemandeDao.cs" />
     <Compile Include="DB\MessageDao.cs" />
+    <Compile Include="DB\NotificationLiveDao.cs" />
     <Compile Include="DB\RendezVousDao.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
