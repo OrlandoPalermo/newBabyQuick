@@ -9,9 +9,7 @@ namespace newBabyQuick.Classes
     {
         private int id, idMembre;
         private short vu, typeNotif;
-        private String message;
-
-        
+        private String message, dateEmission;
         public const short MAIL = 1,
                            DEMANDE = 2;
 
@@ -50,14 +48,23 @@ namespace newBabyQuick.Classes
         {
             get
             {
+                String tmp = "";
                 switch (TypeNotif)
                 {
-                    case MAIL: return "Vous avez reçu un mail !";
-                    case DEMANDE: return "Vous avez reçu une nouvelle demande !";
-                    default: return "Vous n'avez pas de notification";
+                    case MAIL:    tmp += "Vous avez reçu un mail !"; break;
+                    case DEMANDE: tmp += "Vous avez reçu une nouvelle demande !"; break;
+                    default:      tmp += "Vous n'avez pas de notification"; break;
                 }
+
+                return DateEmission + " " + tmp;
             }
             set { message = value; }
+        }
+
+        public String DateEmission
+        {
+            get { return dateEmission; }
+            set { dateEmission = value; }
         }
 
     }

@@ -35,15 +35,15 @@
                         </AnonymousTemplate>
                      <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                               
                                 <li class="navbar-text">
                                         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
 
                                             <ContentTemplate>
-                                                <asp:Timer runat="server" ID="timerNotifs" OnTick="timerNotifs_Tick" Interval="5000"></asp:Timer>
-                                                <asp:LinkButton runat="server" ID="notif" data-toggle="popover" OnClientClick="return false;" OnClick="notif_Click">
-                                                    <span class="glyphicon glyphicon-globe"></span><asp:Label runat="server" ID="badgeNotifs" CssClass="badge">0</asp:Label>
+                                                <asp:Timer runat="server" ID="timerNotifs" OnTick="timerNotifs_Tick" Interval="10000"></asp:Timer>
+                                                <asp:LinkButton runat="server" ID="notif" CssClass="active" data-toggle="popover" OnClientClick="return false;" OnClick="notif_Click">
+                                                    Notifications <asp:Label runat="server" ID="badgeNotifs" CssClass="badge alert-danger">0</asp:Label>
                                                     <asp:BulletedList runat="server" ID="dataNotif" CssClass="hidden"></asp:BulletedList>
+                                                    <asp:TextBox runat="server" ID="ids" CssClass="hidden"></asp:TextBox>
                                                 </asp:LinkButton>
                                             </ContentTemplate>
                                             <Triggers>
@@ -81,10 +81,21 @@
                         var dataList = $("#LoginView_dataNotif");
 
                         dataList.children().each(function () {
-                            $(this).wrapInner("<div class='well well-sm' style='width: 200px'></div>");
+                            var child = $(this);
+                            var valeur = child.html();
+                            child.wrapInner("<div class='well well-sm' style='width: 200px'></div>");
+
+                            if (valeur.search(/mail/i) > 0) {  
+                                child.children().prepend("<span class='glyphicon glyphicon-envelope'></span> ");
+                            } else if (valeur.search(/demande/i) > 0) {
+                                child.children().prepend("<span class='glyphicon glyphicon-inbox'></span> ");
+                            }
+                            
                         });
 
-
+                        $.get("Ajax/AjaxNotificationsVu.aspx?ids=" + $("#LoginView_ids").val(), function () {
+                            $("#LoginView_badgeNotifs").html("0");
+                        });
 
                         return $("#LoginView_dataNotif").html();
                     },

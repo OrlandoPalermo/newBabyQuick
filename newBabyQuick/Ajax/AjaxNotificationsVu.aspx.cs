@@ -17,7 +17,16 @@ namespace newBabyQuick.Ajax
             bdd = Bdd.getInstance();
             notDao = new NotificationLiveDao(bdd);
 
+            String ids = Request.QueryString["ids"];
+            
 
+            String[] arrayIds = ids.Split(' ');
+
+            for (int i = 0; i < arrayIds.Length; i++)
+            {
+                if (arrayIds[i] != "")
+                    notDao.vu(int.Parse(arrayIds[i]));
+            }
         }
     }
 }

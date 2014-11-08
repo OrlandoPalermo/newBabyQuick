@@ -23,11 +23,11 @@ namespace newBabyQuick
 
             if (Request.IsAuthenticated)
             {
-         
+               mainScritM.RegisterAsyncPostBackControl(LoginView.FindControl("notif") as LinkButton);
                 BulletedList list = (BulletedList)LoginView.FindControl("dataNotif");
 
 
-                list.Items.Add(new ListItem("Vous n'avez aucune notifications"));
+                list.Items.Add(new ListItem("Chargement en cours..."));
                 list.DataBind();
             }
         }
@@ -47,7 +47,14 @@ namespace newBabyQuick
                 BulletedList list = (BulletedList)LoginView.FindControl("dataNotif");
                 Label badge = (Label)LoginView.FindControl("badgeNotifs");
 
-                badge.Text = notifs.Count.ToString();
+                String ids = "";
+                foreach (NotificationLive not in notifs)
+                {
+                    ids += not.Id.ToString() + " ";
+                }
+
+                ((TextBox)LoginView.FindControl("ids")).Text = ids;
+                badge.Text = notDao.countNotSeen(idMembre).ToString();
 
                 list.DataSource = notifs;
                 list.DataTextField = "Message";
