@@ -7,32 +7,54 @@
 
     <asp:LoginView runat="server" ViewStateMode="Disabled">
             <AnonymousTemplate>
+                <style>
+                    .thumbnail {
+                        margin-left: 5px;
+                        margin-right: 5px;
+                    }
+                </style>
                  <div class="container">
                     <div class="row" style="line-height: 200px;">
                         <div class="col-lg-12 text-center">
                             <div class="row">
                                 <div class="col-lg-12"><h1 id="titreIndex">BABYQUICK</h1></div>
-                                <div class="col-lg-12"><h4>Je suis une magnifique phrase !</h4></div>
+                                <div class="col-lg-12"><h4>Trouvez votre babysitter en quelques cliques !</h4></div>
                             </div>
                         </div>
                     </div>
                     <div class="row text-center" id="grille_presentation">
                         <div class="col-lg-4">
                             <div class="row">
-                                <div class="col-lg-12"><img src="https://wiki.jvflux.com/images/thumb/4/47/Lamasticot.PNG/300px-Lamasticot.PNG" class="img-circle" /></div>
-                                <div class="col-lg-12 description_image"><h4>Je suis une magnifique phrase !</h4></div>
+                                <div class="thumbnail">
+                                    <img src="Images/babysitter-index-1.jpeg" class="img-thumbnail" style="height: 240px;" />
+                                    <div class="caption">
+                                        <h4>Besoin d'un babysitter pour s'occuper de votre enfant ?</h4>
+                                        <p>Notre service est à votre écoute ! Inscrivez-vous, puis partez à la recherche d'un babysitter !</p>
+                                    </div>
+                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="row">
-                                <div class="col-lg-12"><img src="https://wiki.jvflux.com/images/thumb/4/47/Lamasticot.PNG/300px-Lamasticot.PNG" class="img-circle" /></div>
-                                <div class="col-lg-12 description_image"><h4>Je suis une magnifique phrase !</h4></div>
+                                <div class="thumbnail">
+                                    <img src="Images/babysitter-index-2.png" class="img-thumbnail" />
+                                    <div class="caption">
+                                        <h4>Soyez prévenu en temps réel !</h4>
+                                        <p>N'ayez crainte ! Notre système vous préviendra dans les secondes quand un babysitter aura répondu à votre demande !</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="row">
-                                <div class="col-lg-12"><img src="https://wiki.jvflux.com/images/thumb/4/47/Lamasticot.PNG/300px-Lamasticot.PNG" class="img-circle" /></div>
-                                <div class="col-lg-12 description_image"><h4>Je suis une magnifique phrase !</h4></div>
+                                  <div class="thumbnail">
+                                    <img src="Images/babysitter-index-3.jpeg" class="img-thumbnail" />
+                                    <div class="caption">
+                                        <h4>Système de recherche automatique !</h4>
+                                        <p>Manque de temps pour chercher un babysitter ? Laissez donc faire la recherche automatique (payante) !</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -23,6 +23,7 @@ namespace newBabyQuick
             listBaby.DataSource = babysitter;
             listBaby.DataBind();
             
+            //TODO bug quand on change de page
             if (Page.IsPostBack)
             {
                 RendezVous rdv = null;

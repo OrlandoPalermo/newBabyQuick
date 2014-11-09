@@ -28,7 +28,7 @@ namespace newBabyQuick
 
                 // Ceci ne compte pas les échecs de connexion pour le verrouillage du compte
                 // Pour que les échecs de mot passe déclenchent le verrouillage, utilisez shouldLockout: true
-                var result = signinManager.PasswordSignIn(emailText.Text, passwordText.Text, RememberMe.Checked, shouldLockout: false);
+                var result = signinManager.PasswordSignIn(emailText.Text, passwordText.Text, false, shouldLockout: false);
 
                 switch (result)
                 {
