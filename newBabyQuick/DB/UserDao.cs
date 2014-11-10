@@ -155,11 +155,12 @@ namespace newBabyQuick
             return m;
         }
 
-        public List<Babysitter> findAllBabySitter()
+        public List<Babysitter> findAllBabySitter(String dateD, String dateF)
         {
             bdd.getConnection().Open();
-            SqlCommand command = new SqlCommand("SELECT nom,prenom,gsm,email,types_membre FROM Membre WHERE types_membre = 2", bdd.getConnection());
-            
+            SqlCommand command = new SqlCommand("SELECT nom, prenom , gsm, email, types_membre FROM Membre WHERE types_membre = 2 AND id IN(SELECT id FROM Membre WHERE date_dispo <= @dateD AND date_fin_dispo >= @dateF)", bdd.getConnection());
+            command.Parameters.Add("@dateD", SqlDbType.Date).Value = dateD;
+            command.Parameters.Add("@dateF", SqlDbType.Date).Value = dateF;
             SqlDataReader r = command.ExecuteReader();
             List<Babysitter> m = new List<Babysitter>();
             if (r.HasRows)
@@ -174,5 +175,6 @@ namespace newBabyQuick
             bdd.getConnection().Close();
             return m;
         }
+
     }
 }

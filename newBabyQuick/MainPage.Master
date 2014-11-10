@@ -150,6 +150,25 @@
                                         $(this).css("background-color", "gainsboro");
                                         $(this).css("cursor", "pointer");
                                     });
+
+                                    //Scripts pour les recherches de babysitters
+                                    $("#indexP_listBaby tr:not(:eq(0)) td").click(function () {
+                                        var emailBabysitter = $(this).parent().children().eq(3).text();
+                                        var allTr = $(this).parent().parent().children();
+
+                                        for (var i = 0; i < allTr.length; i++) {
+                                            $(allTr).eq(i).css("background-color", "snow");
+                                        }
+                                        $(this).parent().css("background-color", "gainsboro");
+
+                                        $("#indexP_mailSelected").val(emailBabysitter);
+                                    });
+
+                                    $("#indexP_envoieDates").click(function () {
+                                        $("#indexP_listBaby").show();
+                                    });
+
+                                  
                                 }
                             </script>
                         </LoggedInTemplate>

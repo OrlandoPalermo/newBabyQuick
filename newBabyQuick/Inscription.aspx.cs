@@ -30,7 +30,7 @@ namespace newBabyQuick
                     //manager.SendEmail(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>.");
                     Bdd bdd = Bdd.getInstance();
                     UserDao userDao = new UserDao(bdd);
-
+                    //TODO activer la session quand on vient de s'inscrire
                     if (parents.Checked)
                     {
 

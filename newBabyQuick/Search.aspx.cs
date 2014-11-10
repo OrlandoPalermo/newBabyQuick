@@ -16,12 +16,7 @@ namespace newBabyQuick
         {
             bdd = Bdd.getInstance();
             uD = new UserDao(bdd);
-            List<Babysitter> babysitter = uD.findAllBabySitter();
-
-
-
-            listBaby.DataSource = babysitter;
-            listBaby.DataBind();
+            
 
             String datePr = dateP.Text;
             String dateFi = dateF.Text;
@@ -32,7 +27,7 @@ namespace newBabyQuick
                 RendezVous rdv = null;
                 newBabyQuick.Membre m = Session["membre"] as newBabyQuick.Membre;
                 
-                if (btnVousMeme.Checked)
+                if (btnVousMeme.Checked && mailSelected.Text != "")
                 {
                     int idB = uD.getMembre(mailSelected.Text).Id;
                     rdv = new RendezVous(DateTime.Now.ToString(), datePr, dateFi, idB, m.Id, listMotifs.Text);
@@ -66,7 +61,14 @@ namespace newBabyQuick
 
         protected void envoieDates_Click(object sender, EventArgs e)
         {
-            Console.Write("dsds");
+            if (dateP.Text != "" && dateF.Text != "")
+            {
+                List<Babysitter> babysitter = uD.findAllBabySitter(dateP.Text as string, dateF.Text as string);
+
+                listBaby.DataSource = babysitter;
+                listBaby.DataBind();
+            }
+            
         }
     }
 }
