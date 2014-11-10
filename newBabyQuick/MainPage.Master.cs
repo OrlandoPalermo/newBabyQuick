@@ -23,7 +23,7 @@ namespace newBabyQuick
 
             if (Request.IsAuthenticated)
             {
-               mainScritM.RegisterAsyncPostBackControl(LoginView.FindControl("notif") as LinkButton);
+               //mainScritM.RegisterAsyncPostBackControl(LoginView.FindControl("notif") as LinkButton);
                 BulletedList list = (BulletedList)LoginView.FindControl("dataNotif");
 
 

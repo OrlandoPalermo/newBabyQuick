@@ -22,14 +22,16 @@ namespace newBabyQuick
 
             listBaby.DataSource = babysitter;
             listBaby.DataBind();
+
+            String datePr = dateP.Text;
+            String dateFi = dateF.Text;
             
             //TODO bug quand on change de page
-            if (Page.IsPostBack)
+            if (Page.IsPostBack && datePr != "" && dateFi != "")
             {
                 RendezVous rdv = null;
                 newBabyQuick.Membre m = Session["membre"] as newBabyQuick.Membre;
-                String datePr = dateP.Text;
-                String dateFi = dateF.Text;
+                
                 if (btnVousMeme.Checked)
                 {
                     int idB = uD.getMembre(mailSelected.Text).Id;
@@ -60,6 +62,11 @@ namespace newBabyQuick
         {
            
             //Response.Redirect("/Search.aspx");
+        }
+
+        protected void envoieDates_Click(object sender, EventArgs e)
+        {
+            Console.Write("dsds");
         }
     }
 }

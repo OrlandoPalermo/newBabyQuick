@@ -23,8 +23,8 @@ namespace newBabyQuick
             bdd.getConnection().Close();
             bdd.getConnection().Open();
             string requete = "INSERT INTO Membre"
-                + "(nom, prenom, gsm, email, types_membre, nb_enfants, date_dispo, password, id_asp)"
-                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, @date_dispo, @password, @id_asp)";
+                + "(nom, prenom, gsm, email, types_membre, nb_enfants, date_dispo, date_fin_dispo, password, id_asp)"
+                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, @date_dispo, @date_fin_dispo, @password, @id_asp)";
             SqlCommand command = new SqlCommand(requete, bdd.getConnection());
             command.Parameters.Add("@nom", SqlDbType.VarChar).Value = b.Nom;
             command.Parameters.Add("@prenom", SqlDbType.VarChar).Value = b.Prenom;
@@ -32,7 +32,8 @@ namespace newBabyQuick
             command.Parameters.Add("@email", SqlDbType.VarChar).Value = b.Email;
             command.Parameters.Add("@types_membre", SqlDbType.TinyInt).Value = b.Type;
             command.Parameters.Add("@nb_enfants", SqlDbType.TinyInt).Value = 0;
-            command.Parameters.Add("@date_dispo", SqlDbType.VarChar).Value = "NULL";
+            command.Parameters.Add("@date_dispo", SqlDbType.Date).Value = b.DateDispo;
+            command.Parameters.Add("@date_fin_dispo", SqlDbType.Date).Value = b.DateFinDispo;
             command.Parameters.Add("@password", SqlDbType.VarChar).Value = b.Password;
             command.Parameters.Add("@id_asp", SqlDbType.VarChar).Value = b.Id_asp;
             command.CommandType = CommandType.Text;
@@ -54,7 +55,7 @@ namespace newBabyQuick
             command.Parameters.Add("@email", SqlDbType.VarChar).Value = p.Email;
             command.Parameters.Add("@types_membre", SqlDbType.TinyInt).Value = p.Type;
             command.Parameters.Add("@nb_enfants", SqlDbType.TinyInt).Value = p.NbEnfants;
-            command.Parameters.Add("@date_dispo", SqlDbType.VarChar).Value = "NULL";
+            command.Parameters.Add("@date_dispo", SqlDbType.Date).Value = "NULL";
             command.Parameters.Add("@password", SqlDbType.VarChar).Value = p.Password;
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
@@ -79,7 +80,7 @@ namespace newBabyQuick
             bdd.getConnection().Close();
             bdd.getConnection().Open();
 
-            SqlCommand command = new SqlCommand("SELECT id, nom, prenom, types_membre, gsm, date_dispo, nb_enfants FROM Membre WHERE email = @email", bdd.getConnection());
+            SqlCommand command = new SqlCommand("SELECT id, nom, prenom, types_membre, gsm, date_dispo, date_fin_dispo, nb_enfants FROM Membre WHERE email = @email", bdd.getConnection());
             command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             SqlDataReader r = command.ExecuteReader();
             Membre m = null;
@@ -101,7 +102,7 @@ namespace newBabyQuick
                             m.Id = int.Parse(r["id"].ToString());
                             break;
                         case 2:
-                            m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, r["date_dispo"] as string);
+                            m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, r["date_dispo"] as string, r["date_fin_dispo"] as string);
                             m.Id = int.Parse(r["id"].ToString());
                             break;
                         case 3:
@@ -120,7 +121,7 @@ namespace newBabyQuick
             bdd.getConnection().Close();
             bdd.getConnection().Open();
 
-            SqlCommand command = new SqlCommand("SELECT email, nom, prenom, types_membre, gsm, date_dispo, nb_enfants FROM Membre WHERE id = @id", bdd.getConnection());
+            SqlCommand command = new SqlCommand("SELECT email, nom, prenom, types_membre, gsm, date_dispo, date_fin_dispo, nb_enfants FROM Membre WHERE id = @id", bdd.getConnection());
             command.Parameters.Add("@id", SqlDbType.Int).Value = id;
             SqlDataReader r = command.ExecuteReader();
             Membre m = null;
@@ -141,7 +142,7 @@ namespace newBabyQuick
                             m.Id = id;
                             break;
                         case 2:
-                            m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, r["email"] as string, r["date_dispo"] as string);
+                            m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, r["email"] as string, r["date_dispo"] as string, r["date_fin_dispo"] as string);
                             m.Id = id;
                             break;
                         case 3:

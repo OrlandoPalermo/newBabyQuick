@@ -31,15 +31,6 @@ namespace newBabyQuick {
         protected global::System.Web.UI.WebControls.RadioButton btnInter;
         
         /// <summary>
-        /// Contrôle listBaby.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid listBaby;
-        
-        /// <summary>
         /// Contrôle dateP.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,24 @@ namespace newBabyQuick {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox dateF;
+        
+        /// <summary>
+        /// Contrôle envoieDates.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button envoieDates;
+        
+        /// <summary>
+        /// Contrôle listBaby.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid listBaby;
         
         /// <summary>
         /// Contrôle listMotifs.

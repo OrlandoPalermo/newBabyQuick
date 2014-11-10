@@ -41,7 +41,7 @@ namespace newBabyQuick
 
                     else
                     {
-                        Babysitter babysitter = new Babysitter(nom.Text as string, prenom.Text as string, gsm.Text as string, email.Text as string, password.Text as string);
+                        Babysitter babysitter = new Babysitter(nom.Text as string, prenom.Text as string, gsm.Text as string, email.Text as string, password.Text as string, dateDispo.Text as string, dateFinDispo.Text as string);
                         babysitter.Id_asp = user.Id;
                         userDao.add(babysitter);
                     }
