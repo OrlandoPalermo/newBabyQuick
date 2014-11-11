@@ -12,8 +12,9 @@ namespace newBabyQuick
     public class Parent : Membre
     {
         private short nbEnfants;
+        private String lieux;
 
-        public Parent(String nom, String prenom, String gsm, String email, short nbE, String password)
+        public Parent(String nom, String prenom, String gsm, String email, short nbE, String password, String lieux)
         {
             Nom = nom;
             Prenom = prenom;
@@ -22,16 +23,7 @@ namespace newBabyQuick
             NbEnfants = nbE;
             Email = email;
             Password = password;
-        }
-
-        public Parent(String nom, String prenom, String gsm, String email, short nbE)
-        {
-            Nom = nom;
-            Prenom = prenom;
-            Gsm = gsm;
-            Type = 1;
-            NbEnfants = nbE;
-            Email = email;
+            Lieux = lieux;
         }
 
 
@@ -39,6 +31,12 @@ namespace newBabyQuick
         {
             get { return nbEnfants; }
             set { nbEnfants = value; }
+        }
+
+        public String Lieux
+        {
+            get { return lieux; }
+            set { lieux = value; }
         }
     }
 }

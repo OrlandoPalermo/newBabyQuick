@@ -17,6 +17,7 @@
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/jqueryUI/jquery-ui.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <form id="form1" class="form-horizontal" runat="server">
         <asp:ScriptManager runat="server" ID="mainScritM"></asp:ScriptManager>
         <div style="background: snow;">
@@ -45,7 +46,7 @@
                                                 <asp:Label runat="server" ID="badgeNotifs" CssClass="badge alert-danger">0</asp:Label>
                                                 <asp:BulletedList runat="server" ID="dataNotif" CssClass="hidden"></asp:BulletedList>
                                                 <asp:TextBox runat="server" ID="ids" CssClass="hidden"></asp:TextBox>
-                                                
+
                                             </asp:LinkButton>
                                         </ContentTemplate>
                                         <Triggers>
@@ -95,7 +96,7 @@
                                     $("#indexP_demandesG tr:not(:eq(0))").popover({
                                         html: true,
                                         content: function (e) {
-                                           
+
                                             indexRowSelected = $("#indexP_demandesG tr").index(this);
                                             var idSelected = $(this).children().eq(0).text();
 
@@ -104,7 +105,7 @@
                                             $(".popover:visible").remove();
 
                                             $.get("Ajax/AjaxInfoDemande.aspx?info=" + idSelected, function (data) {
-                                                
+
                                                 $(".popover-content").html(data + '<div class="text-center"><asp:Button runat="server" Text="Accepter" CssClass="btn btn-success" ID="Accept" Style="margin-right: 1px; margin-left: 1px;" /><asp:Button runat="server" Text="Refuser" CssClass="btn btn-danger" ID="Refuser" Style="margin-right: 1px; margin-left: 1px;" /></div>');
 
                                                 $("#LoginView_Accept").click(function (e) {
@@ -164,11 +165,61 @@
                                         $("#indexP_mailSelected").val(emailBabysitter);
                                     });
 
+                                    //Boucle sur les tr du tableau pour les distances
+                                    //Utilisation du google maps api
+
+                                    var trTab = $("#indexP_listBaby tr:not(:eq(0))");
+                                    var dataGoogle = new Array();
+                                    //Indice pour cacher les babysitters trop lointains
+                                    var nbBabysittersMasques = 0;
+                                    var iGoogle = 0;
+                                    var distanceService = new google.maps.DistanceMatrixService();
+
+                                    trTab.each(function () {
+                                        var adresse_babysitter = $(this).children().eq(4).text();
+                                        adresse_parent = $("#indexP_AdresseParent").val();
+
+                                        distanceService.getDistanceMatrix({
+                                            origins: [adresse_parent],
+                                            destinations: [adresse_babysitter],
+                                            travelMode: google.maps.TravelMode.DRIVING,
+                                            unitSystem: google.maps.UnitSystem.METRIC,
+                                            durationInTraffic: true,
+                                            avoidHighways: false,
+                                            avoidTolls: false
+                                        },
+                                        function (response, status) {
+                                            if (status !== google.maps.DistanceMatrixStatus.OK) {
+                                                console.log('Error:', status);
+                                            } else {
+                                                if (status == google.maps.DistanceMatrixStatus.OK) {
+                                                    var origins = response.originAddresses;
+                                                    var destinations = response.destinationAddresses;
+
+                                                    for (var i = 0; i < origins.length; i++) {
+                                                        var results = response.rows[i].elements;
+                                                        for (var j = 0; j < results.length; j++) {
+                                                            var element = results[j];
+                                                            var distance = element.distance.text;
+                                                            if (element.distance.value > 65000) {
+                                                                $("#indexP_listBaby tr:eq(" + (iGoogle + 1) + ")").hide();
+                                                                nbBabysittersMasques++;
+                                                            }
+                                                            var duration = element.duration.text;
+                                                        }
+                                                    }
+                                                    iGoogle++;
+                                                }
+                                                $("#babysitterMasque").text(nbBabysittersMasques + " babysitter(s) masqué(s)");
+                                            }
+                                        });
+                                    });
+
                                     $("#indexP_envoieDates").click(function () {
                                         $("#indexP_listBaby").show();
                                     });
 
-                                  
+
                                 }
                             </script>
                         </LoggedInTemplate>

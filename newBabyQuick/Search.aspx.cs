@@ -63,10 +63,13 @@ namespace newBabyQuick
         {
             if (dateP.Text != "" && dateF.Text != "")
             {
+                AdresseParent.Text = ((Parent)Session["membre"]).Lieux;
                 List<Babysitter> babysitter = uD.findAllBabySitter(dateP.Text as string, dateF.Text as string);
 
                 listBaby.DataSource = babysitter;
                 listBaby.DataBind();
+
+                
             }
             
         }

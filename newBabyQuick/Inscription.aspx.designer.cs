@@ -67,6 +67,15 @@ namespace newBabyQuick {
         protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
+        /// Contrôle lieux.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lieux;
+        
+        /// <summary>
         /// Contrôle parents.
         /// </summary>
         /// <remarks>

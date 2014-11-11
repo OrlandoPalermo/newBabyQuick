@@ -35,16 +35,21 @@
                         <asp:Button runat="server" ID="envoieDates" CssClass="btn btn-default" Text="Générer la liste des babysitters" OnClick="envoieDates_Click" />
                         <div class="row">
                             <div class="col-lg-12">
-                                <asp:DataGrid ID="listBaby" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="listBaby_SelectedIndexChanged" CssClass="table table-bordered">
+                                Votre adresse : <asp:TextBox runat="server" ID="AdresseParent" Enabled="false"></asp:TextBox>
+                            </div>
+                            <div class="col-lg-12">
+                                <asp:DataGrid ID="listBaby" runat="server" Visible="true" AutoGenerateColumns="false" OnSelectedIndexChanged="listBaby_SelectedIndexChanged" CssClass="table table-bordered">
                                     <Columns>
                                         <asp:BoundColumn DataField="nom" HeaderText="Nom"></asp:BoundColumn>
                                         <asp:BoundColumn DataField="prenom" HeaderText="Prénom"></asp:BoundColumn>
                                         <asp:BoundColumn DataField="gsm" HeaderText="GSM"></asp:BoundColumn>
                                         <asp:BoundColumn DataField="email" HeaderText="Email"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="lieux" HeaderText="Adresse"></asp:BoundColumn>
                                     </Columns>
                                 </asp:DataGrid>
 
                             </div>
+                            <div class="alert alert-info" id="babysitterMasque"></div>
                         </div>
                     </ContentTemplate>
 

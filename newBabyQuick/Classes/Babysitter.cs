@@ -11,10 +11,10 @@ namespace newBabyQuick
 {
     public class Babysitter : Membre
     {
-        private String dateDispo, dateFinDispo;
+        private String dateDispo, dateFinDispo, lieux;
 
         private bool confirm;
-        public Babysitter(String nom, String prenom, String gsm, String email, String dateDispo,String dateFinDispo)
+        public Babysitter(String nom, String prenom, String gsm, String email, String password, String dateDispo, String dateFinDispo, String lieux)
         {
             Nom = nom;
             Prenom = prenom;
@@ -23,27 +23,18 @@ namespace newBabyQuick
             Email = email;
             DateDispo = dateDispo;
             DateFinDispo = dateDispo;
-        }
-
-        public Babysitter(String nom, String prenom, String gsm, String email, String password, String dateDispo, String dateFinDispo)
-        {
-            Nom = nom;
-            Prenom = prenom;
-            Gsm = gsm;
-            Type = 2;
-            Email = email;
+            Lieux = lieux;
             Password = password;
-            DateDispo = dateDispo;
-            DateFinDispo = dateFinDispo;
         }
 
-        public Babysitter(String nom, String prenom, String gsm, String email)
+        public Babysitter(String nom, String prenom, String gsm, String email, String lieux)
         {
             Nom = nom;
             Prenom = prenom;
             Gsm = gsm;
             Type = 2;
             Email = email;
+            Lieux = lieux;
         }
 
         public String DateDispo
@@ -62,6 +53,12 @@ namespace newBabyQuick
         {
             get { return dateFinDispo; }
             set { dateFinDispo = value; }
+        }
+
+        public String Lieux
+        {
+            get { return lieux; }
+            set { lieux = value; }
         }
     }
 }

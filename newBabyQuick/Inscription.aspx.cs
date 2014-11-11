@@ -34,14 +34,14 @@ namespace newBabyQuick
                     if (parents.Checked)
                     {
 
-                        Parent parent = new Parent(nom.Text as string, prenom.Text as string, gsm.Text as string, email.Text as string, short.Parse(nbEnfants.Text), password.Text as string);
+                        Parent parent = new Parent(nom.Text as string, prenom.Text as string, gsm.Text as string, email.Text as string, short.Parse(nbEnfants.Text), password.Text as string, lieux.Text);
                         parent.Id_asp = user.Id;
                         userDao.add(parent);
                     }
 
                     else
                     {
-                        Babysitter babysitter = new Babysitter(nom.Text as string, prenom.Text as string, gsm.Text as string, email.Text as string, password.Text as string, dateDispo.Text as string, dateFinDispo.Text as string);
+                        Babysitter babysitter = new Babysitter(nom.Text as string, prenom.Text as string, gsm.Text as string, email.Text as string, password.Text as string, dateDispo.Text as string, dateFinDispo.Text as string, lieux.Text);
                         babysitter.Id_asp = user.Id;
                         userDao.add(babysitter);
                     }
