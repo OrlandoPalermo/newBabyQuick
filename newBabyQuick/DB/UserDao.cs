@@ -80,7 +80,7 @@ namespace newBabyQuick
         {
             bdd.getConnection().Open();
 
-            SqlCommand command = new SqlCommand("SELECT id, nom, password, prenom, types_membre, gsm, date_dispo, date_fin_dispo, nb_enfants, lieux FROM Membre WHERE email = @email", bdd.getConnection());
+            SqlCommand command = new SqlCommand("SELECT * FROM Membre WHERE email = @email", bdd.getConnection());
             command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
             SqlDataReader r = command.ExecuteReader();
             Membre m = null;
@@ -103,6 +103,7 @@ namespace newBabyQuick
                             break;
                         case 2:
                             m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, r["password"] as string, r["date_dispo"] as string, r["date_fin_dispo"] as string, r["lieux"] as string);
+                            ((Babysitter)m).Confirm = (r["confirm"].ToString() == "1") ? true : false;
                             m.Id = int.Parse(r["id"].ToString());
                             break;
                         case 3:

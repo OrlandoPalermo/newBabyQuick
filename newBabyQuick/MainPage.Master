@@ -63,7 +63,7 @@
                                 <li><a href="ServiceMail.aspx">Mes messages <span class="glyphicon glyphicon-envelope"></span></a></li>
                                 <li><a runat="server" href="Profil.aspx" title="Manage your account">Bienvenue, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/index.aspx" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter <span class='glyphicon glyphicon-off'></span>" LogoutPageUrl="~/index.aspx" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                             
