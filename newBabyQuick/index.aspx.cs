@@ -17,7 +17,6 @@ namespace newBabyQuick
             {
                 Bdd bdd = Bdd.getInstance();
                 UserDao uDao = new UserDao(bdd);
-                Session.Timeout = 216000;
                 Session["membre"] = uDao.getMembre(Context.User.Identity.Name);
                 Session["errorSession"] = null;
             }

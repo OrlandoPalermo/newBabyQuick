@@ -23,7 +23,7 @@ namespace newBabyQuick
 
             if (Request.IsAuthenticated)
             {
-               //mainScritM.RegisterAsyncPostBackControl(LoginView.FindControl("notif") as LinkButton);
+                //mainScritM.RegisterAsyncPostBackControl(LoginView.FindControl("notif") as LinkButton);
                 BulletedList list = (BulletedList)LoginView.FindControl("dataNotif");
 
 
@@ -70,14 +70,14 @@ namespace newBabyQuick
 
                 }*/
             }
-            
-            
-              
+
+
+
         }
 
         protected void notif_Click(object sender, EventArgs e)
         {
- 
+
             if (notifs != null)
             {
                 foreach (NotificationLive not in notifs)
@@ -87,12 +87,12 @@ namespace newBabyQuick
 
                 timerNotifs_Tick(null, null);
             }
-            
+
         }
 
         protected void buttonSeen_ServerClick(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

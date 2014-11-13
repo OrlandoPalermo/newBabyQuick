@@ -50,8 +50,8 @@ namespace tab_control
             "VALUES(@dE, @dP, @dF, @iM, @idB, @n)", bdd.getConnection());
 
             req.Parameters.Add("@dE", SqlDbType.DateTime).Value = rdv.DateEmission;
-            req.Parameters.Add("@dP", SqlDbType.VarChar).Value = rdv.DatePrevu;
-            req.Parameters.Add("@dF", SqlDbType.VarChar).Value = rdv.Datefin;
+            req.Parameters.Add("@dP", SqlDbType.Date).Value = rdv.DatePrevu;
+            req.Parameters.Add("@dF", SqlDbType.Date).Value = rdv.Datefin;
             req.Parameters.Add("@iM", SqlDbType.Int).Value = rdv.IdParent;
             req.Parameters.Add("@idB", SqlDbType.Int).Value = rdv.IdBabysitter;
             req.Parameters.Add("@n", SqlDbType.VarChar).Value = rdv.Note;

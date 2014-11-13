@@ -68,11 +68,11 @@
                         <div class="container">
                     <div class="row" style=" background-color: snow; position: relative; top: 50px; border: 2px solid grey; border-radius: 10px; padding: 1%;">
                         <h2 class="col-lg-12 page-header text-center">Les options disponibles :</h2>
-                        <div class="row">
-                            <div class="col-lg-offset-2 col-lg-4">
+                        <div class="row text-center">
+                            <div class="col-md-6 col-sm-6">
                                 <a href="Search.aspx" class="btn btn-default btn-success btn-lg">Rechercher un babysitter</a>
                             </div>
-                            <div class="col-lg-4 ">
+                            <div class="col-md-6 col-sm-6">
                                 <a href="#" class="btn btn-default btn-warning btn-lg">Voir les demandes récentes</a>
                             </div>
                         </div>

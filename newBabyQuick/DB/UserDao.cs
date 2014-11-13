@@ -47,8 +47,8 @@ namespace newBabyQuick
             bdd.getConnection().Close();
             bdd.getConnection().Open();
             string requete = "INSERT INTO Membre"
-                + "(nom, prenom, gsm, email, types_membre, nb_enfants, date_dispo, password, lieux)"
-                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, @date_dispo, @password, @lieux)";
+                + "(nom, prenom, gsm, email, types_membre, nb_enfants, password, lieux)"
+                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, @password, @lieux)";
             SqlCommand command = new SqlCommand(requete, bdd.getConnection());
             command.Parameters.Add("@nom", SqlDbType.VarChar).Value = p.Nom;
             command.Parameters.Add("@prenom", SqlDbType.VarChar).Value = p.Prenom;
@@ -56,7 +56,6 @@ namespace newBabyQuick
             command.Parameters.Add("@email", SqlDbType.VarChar).Value = p.Email;
             command.Parameters.Add("@types_membre", SqlDbType.TinyInt).Value = p.Type;
             command.Parameters.Add("@nb_enfants", SqlDbType.TinyInt).Value = p.NbEnfants;
-            command.Parameters.Add("@date_dispo", SqlDbType.Date).Value = "NULL";
             command.Parameters.Add("@password", SqlDbType.VarChar).Value = p.Password;
             command.Parameters.Add("@lieux", SqlDbType.VarChar).Value = p.Lieux;
             command.CommandType = CommandType.Text;
@@ -79,7 +78,6 @@ namespace newBabyQuick
 
         public Membre getMembre(String email)
         {
-            bdd.getConnection().Close();
             bdd.getConnection().Open();
 
             SqlCommand command = new SqlCommand("SELECT id, nom, password, prenom, types_membre, gsm, date_dispo, date_fin_dispo, nb_enfants, lieux FROM Membre WHERE email = @email", bdd.getConnection());

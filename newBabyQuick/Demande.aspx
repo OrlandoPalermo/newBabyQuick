@@ -12,7 +12,7 @@
             </div>
             <div class="panel-body">
 
-                <asp:UpdatePanel runat="server" UpdateMode="Always">
+                <asp:UpdatePanel runat="server" UpdateMode="Always" ChildrenAsTriggers="false">
                     <ContentTemplate>
                         <asp:Timer runat="server" ID="tickDemandes" OnTick="tickDemandes_Tick" Interval="20000"></asp:Timer>
                         <asp:GridView runat="server" CssClass="table table-bordered" data-placement="top" ID="demandesG" AutoGenerateColumns="false">

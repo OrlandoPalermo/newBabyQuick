@@ -20,9 +20,9 @@ namespace newBabyQuick
 
             String datePr = dateP.Text;
             String dateFi = dateF.Text;
-            
-            //TODO bug quand on change de page
-            if (Page.IsPostBack && datePr != "" && dateFi != "")
+            var test = Request.Form["__EVENTTARGET"];
+            //TODO bug a cause des intervals
+            if (Page.IsPostBack && datePr != "" && dateFi != "" && test != "ctl00$LoginView$timerNotifs")
             {
                 RendezVous rdv = null;
                 newBabyQuick.Membre m = Session["membre"] as newBabyQuick.Membre;
@@ -39,6 +39,7 @@ namespace newBabyQuick
 
                 if (rdv != null)
                 {
+                    dateP.Text = ""; dateF.Text = "";
                     RendezVousDao rdvDao = new RendezVousDao(bdd);
                     rdvDao.add(rdv);
                 }
