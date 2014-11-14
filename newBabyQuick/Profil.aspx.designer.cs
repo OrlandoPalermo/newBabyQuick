@@ -22,13 +22,13 @@ namespace newBabyQuick {
         protected global::System.Web.UI.WebControls.Label NomPrenom;
         
         /// <summary>
-        /// Contrôle Gsm.
+        /// Contrôle GsmMod.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Gsm;
+        protected global::System.Web.UI.WebControls.TextBox GsmMod;
         
         /// <summary>
         /// Contrôle NbEnfantProfil.

@@ -41,6 +41,9 @@ namespace newBabyQuick
             if (Request.IsAuthenticated)
             {
                 //TODO simplification liste => attribut
+                if (Session["membre"] == null)
+                    return;
+
                 int idMembre = ((Membre)Session["membre"]).Id;
                 notifs = notDao.read(idMembre);
 

@@ -13,8 +13,12 @@ namespace newBabyQuick
         protected void Page_init(object sender, EventArgs e)
         {
                 connectedMember = (Membre)Session["membre"];
+
+                if (connectedMember == null)
+                    Response.Redirect("index.aspx");
+
                 NomPrenom.Text = connectedMember.Nom + " " + connectedMember.Prenom;
-                Gsm.Text = connectedMember.Gsm;
+                GsmMod.Text = connectedMember.Gsm;
                 if (((Membre)connectedMember).Type == 1)
                 {
                     NbEnfantProfil.Text = ((Parent)connectedMember).NbEnfants.ToString();
@@ -36,6 +40,7 @@ namespace newBabyQuick
             Bdd bdd = Bdd.getInstance();
             UserDao uDao = new UserDao(bdd);
 
+            connectedMember.Gsm = GsmMod.Text;
             if (((Membre)connectedMember).Type == 1)
             {
                 ((Parent)connectedMember).NbEnfants = short.Parse(NbEnfantProfil.Text);

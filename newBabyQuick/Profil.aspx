@@ -10,43 +10,58 @@
             </div>
 
             <div class="panel-body">
-                <div class="form-inline">
+                <div class="form-inline well">
                     <asp:Label runat="server" ID="NomPrenom"></asp:Label>
-                    <br />
-                    <asp:Label runat="server" ID="Gsm"></asp:Label>
                 </div>
-                <% newBabyQuick.Membre m = Session["membre"] as newBabyQuick.Membre;
-                   if (m.Type == 1)
-                   { %>
-                <div class="form-inline">
-                    <label for="">Nombre d'enfants : </label>
-                    <asp:TextBox runat="server" ID="NbEnfantProfil" CssClass="form-control"></asp:TextBox>
-                </div>
-                <% }
-                   else
-                   { %>
-                <!-- Préremplir les infos sur les dates -->
-                <div class="form-inline">
-                    <label for="<%= dateDispo.ClientID %>">Vous êtes disponible du : </label>
-                    <asp:TextBox runat="server" ID="dateDispo" CssClass="form-control"></asp:TextBox>
-                    <label for="<%= dateFinDispo.ClientID %>">jusqu'au : </label>
-                    <asp:TextBox runat="server" ID="dateFinDispo" CssClass="form-control"></asp:TextBox>
-                </div>
-                <label for="">Statut du compte : </label>
-                <% var glyphiconEtat = ""; if (((newBabyQuick.Babysitter)m).Confirm) { glyphiconEtat = "ok"; } else { glyphiconEtat = "remove"; } %>
-                <span id="etat" class="glyphicon glyphicon-<%= glyphiconEtat %>"></span>
-                <% } %>
-                <div style="position: relative; top: 10px;">
+                <div style="padding: 15px;">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="<%= GsmMod.ClientID %>" class="col-md-3 col-sm-3">Numéro de téléphone : </label>
+                            <asp:TextBox runat="server" ID="GsmMod" CssClass="form-control col-md-4 col-sm-4"></asp:TextBox>
+                        </div>
+                    </div>
 
-                    <asp:TextBox runat="server" ID="lieux" CssClass="form-control"></asp:TextBox>
-                    <div id="map-canvas" style="height: 350px" ></div>
 
+                    <% newBabyQuick.Membre m = Session["membre"] as newBabyQuick.Membre;
+                       if (m.Type == 1)
+                       { %>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="<%= NbEnfantProfil.ClientID %>" class="col-md-3 col-sm-3">Nombre d'enfants : </label>
+                            <asp:TextBox runat="server" ID="NbEnfantProfil" CssClass="form-control col-md-6 col-sm-6"></asp:TextBox>
+                        </div>
+                    </div>
+                    <% }
+                       else
+                       { %>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="<%= dateDispo.ClientID %>" class="col-md-3 col-sm-3">Vous êtes disponible du : </label>
+                            <asp:TextBox runat="server" ID="dateDispo" CssClass="form-control col-md-3 col-sm-3"></asp:TextBox>
+                            <label for="<%= dateFinDispo.ClientID %>" class="col-md-2 col-sm-2">jusqu'au : </label>
+                            <asp:TextBox runat="server" ID="dateFinDispo" CssClass="form-control col-md-3 col-sm-3"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="" class="col-lg-3">Statut du compte : </label>
+                            <% var glyphiconEtat = ""; if (((newBabyQuick.Babysitter)m).Confirm) { glyphiconEtat = "ok"; } else { glyphiconEtat = "remove"; } %>
+                            <span id="etat" class="glyphicon glyphicon-<%= glyphiconEtat %>"></span>
+                        </div>
+                    </div>
+                    <% } %>
+
+                    <div style="position: relative; top: 10px;">
+                        <asp:TextBox runat="server" ID="lieux" CssClass="form-control"></asp:TextBox>
+                        <div id="map-canvas" style="height: 350px"></div>
+                    </div>
                 </div>
-         </div>
+            </div>
             <div class="panel-footer text-center">
                 <asp:Button runat="server" ID="AcceptModification" Text="Editer le profil" CssClass="btn btn-success" OnClick="AcceptModification_Click" />
             </div>
         </div>
+
     </div>
     <script>
         $(function () {
@@ -72,8 +87,7 @@
                 });
 
                 var defaultBounds = new google.maps.LatLngBounds(
-                    new google.maps.LatLng(-33.8902, 151.1759),
-                    new google.maps.LatLng(-33.8474, 151.2631));
+                    new google.maps.LatLng(50.452908, 3.956469));
                 map.fitBounds(defaultBounds);
 
                 // Create the search box and link it to the UI element.
@@ -106,7 +120,7 @@
                             size: new google.maps.Size(71, 71),
                             origin: new google.maps.Point(0, 0),
                             anchor: new google.maps.Point(17, 34),
-                            scaledSize: new google.maps.Size(25, 25)
+                            scaledSize: new google.maps.Size(50, 50)
                         };
 
                         // Create a marker for each place.

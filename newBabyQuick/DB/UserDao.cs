@@ -65,7 +65,8 @@ namespace newBabyQuick
         public void update(Parent p)
         {
             bdd.getConnection().Open();
-            SqlCommand req = new SqlCommand("UPDATE Membre SET nb_enfants = @nb, lieux = @l WHERE id = @id", bdd.getConnection());
+            SqlCommand req = new SqlCommand("UPDATE Membre SET nb_enfants = @nb, lieux = @l, gsm = @g WHERE id = @id", bdd.getConnection());
+            req.Parameters.Add("@g", SqlDbType.VarChar).Value = p.Gsm;
             req.Parameters.Add("@nb", SqlDbType.TinyInt).Value = p.NbEnfants;
             req.Parameters.Add("@l", SqlDbType.VarChar).Value = p.Lieux;
             req.Parameters.Add("@id", SqlDbType.Int).Value = p.Id;
@@ -78,7 +79,8 @@ namespace newBabyQuick
         public void update(Babysitter b)
         {
             bdd.getConnection().Open();
-            SqlCommand req = new SqlCommand("UPDATE Membre SET date_dispo = @dD, date_fin_dispo = @dF AND lieux = @l WHERE id = @id", bdd.getConnection());
+            SqlCommand req = new SqlCommand("UPDATE Membre SET date_dispo = @dD, date_fin_dispo = @dF, lieux = @l, gsm = @g WHERE id = @id", bdd.getConnection());
+            req.Parameters.Add("@g", SqlDbType.VarChar).Value = b.Gsm;
             req.Parameters.Add("@dD", SqlDbType.Date).Value = b.DateDispo;
             req.Parameters.Add("@dF", SqlDbType.Date).Value = b.DateFinDispo;
             req.Parameters.Add("@l", SqlDbType.VarChar).Value = b.Lieux;

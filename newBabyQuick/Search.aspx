@@ -3,6 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="indexP" runat="server">
+    <style>
+        .freeOption {
+            display: none;
+        }
+    </style>
     <div class="container">
         <h2 class="page-header">Rechercher un babysitter</h2>
         <div class="row alert alert-danger" style="padding: 1%;">
@@ -18,12 +23,14 @@
             </div>
             <div class="panel panel-body">
 
-
-                <div class="form-inline">
-                    <label for="<%= dateP.ClientID %>">Vous rechercher un babysitter pour le : </label>
-                    <asp:TextBox runat="server" ID="dateP" CssClass="form-control"></asp:TextBox>
-                    <label for="<%= dateF.ClientID %>">jusqu'au : </label>
-                    <asp:TextBox runat="server" ID="dateF" CssClass="form-control"></asp:TextBox>
+                <div class="infoDemande" style="padding: 15px;">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="<%= dateP.ClientID %>" class="col-md-3">Vous rechercher un babysitter pour le </label>
+                        <asp:TextBox runat="server" ID="dateP" CssClass="form-control col-md-2"></asp:TextBox>
+                        <label for="<%= dateF.ClientID %>" class="col-md-2">jusqu'au : </label>
+                        <asp:TextBox runat="server" ID="dateF" CssClass="form-control col-md-2"></asp:TextBox>
+                    </div>
                 </div>
 
 
@@ -32,10 +39,16 @@
                         <asp:AsyncPostBackTrigger ControlID="envoieDates" EventName="Click" />
                     </Triggers>
                     <ContentTemplate>
-                        <asp:Button runat="server" ID="envoieDates" CssClass="btn btn-default" Text="Générer la liste des babysitters" OnClick="envoieDates_Click" />
                         <div class="row">
-                            <div class="col-lg-12">
-                                Votre adresse : <asp:TextBox runat="server" ID="AdresseParent" Enabled="false"></asp:TextBox>
+                            <div class="form-group">
+                                <asp:Button runat="server" ID="envoieDates" CssClass="btn btn-default freeOption col-md-offset-5" Text="Générer la liste des babysitters" OnClick="envoieDates_Click" />
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="" class="col-md-3">Votre adresse : </label><asp:TextBox runat="server" ID="AdresseParent" Enabled="false" CssClass="form-control col-lg-4"></asp:TextBox>
                             </div>
                             <div class="col-lg-12">
                                 <asp:DataGrid ID="listBaby" runat="server" Visible="true" AutoGenerateColumns="false" OnSelectedIndexChanged="listBaby_SelectedIndexChanged" CssClass="table table-bordered">
@@ -49,22 +62,29 @@
                                 </asp:DataGrid>
 
                             </div>
-                            <div class="alert alert-info" id="babysitterMasque"></div>
+                            <div class="alert alert-info freeOption" id="babysitterMasque"></div>
                         </div>
                     </ContentTemplate>
 
                 </asp:UpdatePanel>
 
-                <select id="motifs" class="form-control">
-                    <option></option>
-                    <option>Enfant(s) malade(s)</option>
-                    <option>Enfant(s) blessé(s)</option>
-                    <option>Journée pédagogique</option>
-                </select>
-                <asp:TextBox runat="server" TextMode="MultiLine" ID="listMotifs" Width="200" Height="100" CssClass="form-control"></asp:TextBox>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="motifs" class="col-lg-3">Informations supplémentaires : </label>
+                        <select id="motifs" class="form-control">
+                            <option></option>
+                            <option>Enfant(s) malade(s)</option>
+                            <option>Enfant(s) blessé(s)</option>
+                            <option>Journée pédagogique</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <asp:TextBox runat="server" TextMode="MultiLine" ID="listMotifs" Width="200" Height="100" CssClass="form-control col-md-offset-3 col-md-3"></asp:TextBox>
             </div>
+                </div>
             <asp:TextBox runat="server" ID="mailSelected" CssClass="hide"></asp:TextBox>
-            <div class="text-center">
+            <div class="panel-footer text-center">
                 <asp:Button runat="server" Text="Envoyer une demande" ID="submit_demande" CssClass="btn btn-default btn-success col-lg-12" OnClick="submit_demande_Click" />
 
             </div>
@@ -75,11 +95,13 @@
         $(document).ready(function () {
             $("#indexP_btnVousMeme").change(function () {
                 $("#indexP_listBaby").removeClass("hide").addClass("show");
-                $("#panelDemande").show(1000);
+                $("#panelDemande").show(500);
+                $(".freeOption").show();
             });
             $("#indexP_btnInter").change(function () {
                 $("#indexP_listBaby").removeClass("show").addClass("hide");
-                $("#panelDemande").show(1000);
+                $("#panelDemande").show(500);
+                $(".freeOption").hide();
             });
 
 
