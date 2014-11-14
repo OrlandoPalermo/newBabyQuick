@@ -22,7 +22,7 @@ namespace newBabyQuick
             Type = 2;
             Email = email;
             DateDispo = dateDispo;
-            DateFinDispo = dateDispo;
+            DateFinDispo = dateFinDispo;
             Lieux = lieux;
             Password = password;
         }

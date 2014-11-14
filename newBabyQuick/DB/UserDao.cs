@@ -44,7 +44,6 @@ namespace newBabyQuick
 
         public void add(Parent p)
         {
-            bdd.getConnection().Close();
             bdd.getConnection().Open();
             string requete = "INSERT INTO Membre"
                 + "(nom, prenom, gsm, email, types_membre, nb_enfants, password, lieux)"
@@ -63,7 +62,32 @@ namespace newBabyQuick
             bdd.getConnection().Close();
         }
 
+        public void update(Parent p)
+        {
+            bdd.getConnection().Open();
+            SqlCommand req = new SqlCommand("UPDATE Membre SET nb_enfants = @nb, lieux = @l WHERE id = @id", bdd.getConnection());
+            req.Parameters.Add("@nb", SqlDbType.TinyInt).Value = p.NbEnfants;
+            req.Parameters.Add("@l", SqlDbType.VarChar).Value = p.Lieux;
+            req.Parameters.Add("@id", SqlDbType.Int).Value = p.Id;
 
+            req.ExecuteNonQuery();
+
+            bdd.getConnection().Close();
+        }
+
+        public void update(Babysitter b)
+        {
+            bdd.getConnection().Open();
+            SqlCommand req = new SqlCommand("UPDATE Membre SET date_dispo = @dD, date_fin_dispo = @dF AND lieux = @l WHERE id = @id", bdd.getConnection());
+            req.Parameters.Add("@dD", SqlDbType.Date).Value = b.DateDispo;
+            req.Parameters.Add("@dF", SqlDbType.Date).Value = b.DateFinDispo;
+            req.Parameters.Add("@l", SqlDbType.VarChar).Value = b.Lieux;
+            req.Parameters.Add("@id", SqlDbType.Int).Value = b.Id;
+
+            req.ExecuteNonQuery();
+
+            bdd.getConnection().Close();
+        }
 
         public void delete(Membre m)
         {
@@ -102,7 +126,7 @@ namespace newBabyQuick
                             m.Id = int.Parse(r["id"].ToString());
                             break;
                         case 2:
-                            m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, r["password"] as string, r["date_dispo"] as string, r["date_fin_dispo"] as string, r["lieux"] as string);
+                            m = new Babysitter(r["nom"] as string, r["prenom"] as string, r["gsm"] as string, email, r["password"] as string, r["date_dispo"].ToString(), r["date_fin_dispo"].ToString(), r["lieux"] as string);
                             ((Babysitter)m).Confirm = (r["confirm"].ToString() == "1") ? true : false;
                             m.Id = int.Parse(r["id"].ToString());
                             break;

@@ -79,19 +79,19 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="hide col-lg-offset-5 col-sm-offset-5 col-md-offset-5" id="write">
-                    <div class="form-group">
-                        <label for="indexP_sujetW">Sujet :</label><asp:TextBox runat="server" ID="sujetW" CssClass="form-control"></asp:TextBox>
+            <div>
+                <div class="hide text-center" id="write">
+                    <div>
+                        <label for="indexP_sujetW">Sujet :</label><asp:TextBox runat="server" ID="sujetW" CssClass="form-control" style="margin: auto;"></asp:TextBox>
                     </div>
-                    <div class="form-group">
-                        <label for="indexP_destW">Destinataire :</label><asp:TextBox runat="server" ID="destW" CssClass="form-control"></asp:TextBox>
+                    <div>
+                        <label for="indexP_destW">Destinataire :</label><asp:TextBox runat="server" ID="destW" CssClass="form-control" style="margin: auto;"></asp:TextBox>
                     </div>
-                    <div class="form-group">
-                         <label for="indexP_contenuW">Contenu : </label><asp:TextBox runat="server" TextMode="MultiLine" ID="contenuW" CssClass="form-control"></asp:TextBox>
+                    <div>
+                         <label for="indexP_contenuW">Contenu : </label><asp:TextBox runat="server" TextMode="MultiLine" ID="contenuW" CssClass="form-control" style="margin: auto;"></asp:TextBox>
                     </div>
-                    <div class="form-group">
-                        <asp:Button runat="server" ID="sendMail" CssClass="btn btn-success" Text="Envoyer" OnClick="sendMail_Click"/>
+                    <div>
+                        <asp:Button runat="server" ID="sendMail" CssClass="btn btn-success" Text="Envoyer" OnClick="sendMail_Click" style="margin: auto;"/>
                     </div>          
                 </div>
                 <div class="col-lg-5"></div>

@@ -17,7 +17,7 @@
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/jqueryUI/jquery-ui.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <form id="form1" class="form-horizontal" runat="server">
         <asp:ScriptManager runat="server" ID="mainScritM"></asp:ScriptManager>
         <div style="background: snow;">

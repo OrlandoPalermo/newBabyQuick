@@ -5,12 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="indexP" runat="server">
     <style>
         #map-canvas {
-        height: 250px;
-        margin: 0px;
-        padding: 0px
-      }
+            height: 250px;
+            margin: 0px;
+            padding: 0px;
+        }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+   
     <script src="Scripts/jqueryUI/jquery-ui.min.js"></script>
     <asp:Label runat="server" Text="" ID="test"></asp:Label>
     <div class="container">
@@ -64,9 +64,9 @@
                     </div>
                 </div>
                 <div class="row">
- 
-                            <asp:TextBox runat="server" ID="lieux" CssClass="form-control col-lg-12"></asp:TextBox>
-                            <div id="map-canvas" class="col-lg-12"></div>
+
+                    <asp:TextBox runat="server" ID="lieux" CssClass="form-control col-lg-12"></asp:TextBox>
+                    <div id="map-canvas" class="col-lg-12"></div>
 
                 </div>
                 <div class="row">

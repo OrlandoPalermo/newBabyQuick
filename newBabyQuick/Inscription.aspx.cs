@@ -45,9 +45,9 @@ namespace newBabyQuick
                         babysitter.Id_asp = user.Id;
                         userDao.add(babysitter);
                     }
-
+                    Session.Clear();
                     IdentityHelper.SignIn(manager, user, isPersistent: false);
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    IdentityHelper.RedirectToReturnUrl("index.aspx", Response);
  
                 }
                 else

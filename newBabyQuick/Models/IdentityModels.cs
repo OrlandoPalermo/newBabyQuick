@@ -100,7 +100,7 @@ namespace newBabyQuick
             }
             else
             {
-                response.Redirect("~/");
+                response.Redirect("~/index.aspx");
             }
         }
     }
