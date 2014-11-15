@@ -26,9 +26,12 @@ namespace newBabyQuick
                 //mainScritM.RegisterAsyncPostBackControl(LoginView.FindControl("notif") as LinkButton);
                 BulletedList list = (BulletedList)LoginView.FindControl("dataNotif");
 
-
-                list.Items.Add(new ListItem("Chargement en cours..."));
-                list.DataBind();
+                if (list != null)
+                {
+                    list.Items.Add(new ListItem("Chargement en cours..."));
+                    list.DataBind();
+                }
+                
             }
         }
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

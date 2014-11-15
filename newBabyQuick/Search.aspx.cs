@@ -1,4 +1,6 @@
-﻿using System;
+﻿using newBabyQuick.Classes;
+using newBabyQuick.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,11 +14,13 @@ namespace newBabyQuick
     {
         private UserDao uD;
         private Bdd bdd;
+        private NotificationLiveDao notDao;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             bdd = Bdd.getInstance();
             uD = new UserDao(bdd);
-            
+            notDao = new NotificationLiveDao(bdd);
 
             String datePr = dateP.Text;
             String dateFi = dateF.Text;
@@ -42,6 +46,7 @@ namespace newBabyQuick
                     dateP.Text = ""; dateF.Text = "";
                     RendezVousDao rdvDao = new RendezVousDao(bdd);
                     rdvDao.add(rdv);
+                    notDao.add(new NotificationLive(rdv.IdBabysitter, NotificationLive.DEMANDE));
                 }
                 
             }

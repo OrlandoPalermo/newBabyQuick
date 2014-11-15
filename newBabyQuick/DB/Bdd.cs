@@ -33,7 +33,15 @@ namespace newBabyQuick
 
         public void Open()
         {
-            connexion.Open();
+            try
+            {
+                connexion.Open();
+            }
+            catch (Exception E)
+            {
+                
+            }
+            
         }
     }
 }

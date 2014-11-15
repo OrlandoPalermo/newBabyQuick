@@ -8,7 +8,7 @@
             display: none;
         }
     </style>
-    <div class="container">
+    <div class="container" style="margin-bottom: 60px;">
         <h2 class="page-header">Rechercher un babysitter</h2>
         <div class="row alert alert-danger" style="padding: 1%;">
             <strong>Avant de commencer, voulez-vous rechercher votre babysitter :</strong>
@@ -26,7 +26,7 @@
                 <div class="infoDemande" style="padding: 15px;">
                 <div class="row">
                     <div class="form-group">
-                        <label for="<%= dateP.ClientID %>" class="col-md-3">Vous rechercher un babysitter pour le </label>
+                        <label for="<%= dateP.ClientID %>" class="col-md-3">Vous recherchez un babysitter pour le </label>
                         <asp:TextBox runat="server" ID="dateP" CssClass="form-control col-md-2"></asp:TextBox>
                         <label for="<%= dateF.ClientID %>" class="col-md-2">jusqu'au : </label>
                         <asp:TextBox runat="server" ID="dateF" CssClass="form-control col-md-2"></asp:TextBox>
@@ -48,9 +48,9 @@
                         
                         <div class="row">
                             <div class="form-group">
-                                <label for="" class="col-md-3">Votre adresse : </label><asp:TextBox runat="server" ID="AdresseParent" Enabled="false" CssClass="form-control col-lg-4"></asp:TextBox>
+                                <label for="" class="col-md-3 freeOption">Votre adresse : </label><asp:TextBox runat="server" ID="AdresseParent" Enabled="false" CssClass="form-control col-lg-4 freeOption"></asp:TextBox>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 table-responsive">
                                 <asp:DataGrid ID="listBaby" runat="server" Visible="true" AutoGenerateColumns="false" OnSelectedIndexChanged="listBaby_SelectedIndexChanged" CssClass="table table-bordered">
                                     <Columns>
                                         <asp:BoundColumn DataField="nom" HeaderText="Nom"></asp:BoundColumn>

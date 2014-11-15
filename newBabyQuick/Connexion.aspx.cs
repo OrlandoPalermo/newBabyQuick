@@ -38,6 +38,11 @@ namespace newBabyQuick
                         UserDao userDao = new UserDao(bdd);
 
                         Membre m = userDao.getMembre(emailText.Text);
+
+                        //Présent dans la table ASP mais pas dans la table Membre
+                        if (m == null)
+                            return;
+
                         Session["membre"] = m;
                         emailText.Text = m.Nom;
                         Response.Redirect("/index.aspx");

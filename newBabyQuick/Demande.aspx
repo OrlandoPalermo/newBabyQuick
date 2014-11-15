@@ -5,14 +5,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="indexP" runat="server">
     <style>
     </style>
-    <div class="container" style="position: relative; top: 15px;">
+    <div class="container" style="position: relative; top: 15px; margin-bottom: 60px;">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3>Les demandes reçues</h3>
             </div>
             <div class="panel-body">
-
-                <asp:UpdatePanel runat="server">
+                <div id="notificationsDemandes"></div>
+                <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
                         <asp:Timer runat="server" ID="tickDemandes" OnTick="tickDemandes_Tick" Interval="20000"></asp:Timer>
                         <asp:GridView runat="server" CssClass="table table-bordered" data-placement="top" ID="demandesG" AutoGenerateColumns="false">

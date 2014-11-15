@@ -67,7 +67,7 @@
                                                    <label class="col-lg-12"><h5 style="display: inline-block;">De : </h5><asp:Label runat="server" ID="From" /></label>
                                                    <div class="col-lg-12">
                                                            <h5>Contenu : </h5>
-                                                           <asp:TextBox runat="server" ID="Contenu" TextMode="MultiLine" Height="200" Width="500"></asp:TextBox>
+                                                           <asp:TextBox runat="server" ID="Contenu" TextMode="MultiLine" Height="200" CssClass="form-control"></asp:TextBox>
                                                </div>
                                           </ContentTemplate>
                                       

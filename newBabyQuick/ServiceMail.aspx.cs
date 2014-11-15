@@ -36,11 +36,18 @@ namespace newBabyQuick
 
         protected void sendMail_Click(object sender, EventArgs e)
         {
-            Message m = new Message(((Membre)Session["membre"]).Id, uDao.getMembre(destW.Text).Id, sujetW.Text as string, contenuW.Text as string);
-            MailSender mS = new MailSender(((Membre)Session["membre"]).Email, destW.Text, sujetW.Text, contenuW.Text);
-            mDao.add(m);
+            String sujet = sujetW.Text;
+            String contenu = contenuW.Text;
+            String dest = destW.Text;
 
-            mS.Send();
+            if (sujet != "" && contenu != "" && dest != "")
+            {
+                Message m = new Message(((Membre)Session["membre"]).Id, uDao.getMembre(dest).Id, sujet, contenu);
+                MailSender mS = new MailSender(((Membre)Session["membre"]).Email, destW.Text, sujetW.Text, contenuW.Text);
+                mDao.add(m);
+
+                mS.Send();
+            }
         }
 
         protected void timerList_Tick(object sender, EventArgs e)
@@ -62,9 +69,19 @@ namespace newBabyQuick
 
         protected void deleteMail_Click(object sender, EventArgs e)
         {
-            mDao.delete(int.Parse(Id.Text.ToString()));
-            timerList_Tick(null, null);
-            clear();
+            try
+            {
+                int idMessage = int.Parse(Id.Text.ToString());
+                mDao.delete(idMessage);
+                timerList_Tick(null, null);
+                clear();
+            }
+            catch (Exception E)
+            {
+                return;
+            }
+            
+            
         }
 
         private void clear()

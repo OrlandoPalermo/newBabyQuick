@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="indexP" runat="server">
-    <div class="container">
+    <div class="container" style="margin-bottom: 60px;">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <h3>Etat de votre compte</h3>

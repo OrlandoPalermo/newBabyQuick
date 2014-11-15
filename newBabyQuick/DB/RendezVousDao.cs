@@ -1,4 +1,5 @@
 ﻿using newBabyQuick;
+using newBabyQuick.DB;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +14,7 @@ namespace tab_control
     class RendezVousDao
     {
         private Bdd bdd;
+
         public RendezVousDao(Bdd b)
         {
             this.bdd = b;
@@ -78,7 +80,7 @@ namespace tab_control
                     int idBabysitter = int.Parse(reader["id_babysitter"].ToString());
                     int idMembre = int.Parse(reader["id_membre"].ToString());
 
-                    RendezVous rendezV = new RendezVous(reader["date_emission"] as string, reader["date_prevu"] as string, reader["date_fin"] as string, idBabysitter, idMembre, reader["note"] as string);
+                    RendezVous rendezV = new RendezVous(reader["date_emission"].ToString(), reader["date_prevu"].ToString(), reader["date_fin"].ToString(), idBabysitter, idMembre, reader["note"] as string);
                     rendezV.Id = int.Parse(reader["id"].ToString());
                     list.Add(rendezV);
                 }

@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="Content/bootstrap.css" />
     <link rel="stylesheet" href="Content/Site.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/rtsinani/jquery-datepicker-skins/master/css/latoja.datepicker.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -96,11 +98,32 @@
                                         placement: "bottom",
                                         title: "Notifications"
                                     });
+                                    //--------------------------------------------------------------------
+                                    //Javascript pour les requêtes ajax de la partie demande du babysitter
+                                    //--------------------------------------------------------------------
 
                                     var indexRowSelected = 0;
                                     var oldIndexSelected = 0;
+                                    var rowSelectable = $("#indexP_demandesG tr:not(:eq(0))");
 
-                                    $("#indexP_demandesG tr:not(:eq(0))").popover({
+                                    function activeNotificationDemande() {
+                                        
+                                        var countRow = rowSelectable.length;
+
+
+                                        if (countRow == 0) {
+                                            rowSelectable.parent().parent().fadeOut();
+                                            $("#notificationsDemandes").html("<div class='alert alert-warning text-center'>Vous n'avez pas reçu de demandes pour l'instant.</div>")
+                                        }
+                                        else {
+                                            $("#notificationsDemandes").html("");
+                                            rowSelectable.parent().parent().fadeIn();
+                                        }
+                                    }
+                                    
+                                    activeNotificationDemande();
+
+                                    rowSelectable.popover({
                                         html: true,
                                         content: function (e) {
 
@@ -125,6 +148,8 @@
                                                             setTimeout(function () {
                                                                 $("#indexP_demandesG tr").eq(indexRowSelected).fadeOut();
                                                             }, 500);
+
+                                                            activeNotificationDemande();
                                                         }, 1500);
 
                                                     });
@@ -140,6 +165,10 @@
                                                             setTimeout(function () {
                                                                 $("#indexP_demandesG tr").eq(indexRowSelected).fadeOut();
                                                             }, 500);
+
+                                                            activeNotificationDemande();
+
+                                                        
                                                         }, 1500);
                                                     });
                                                 });
@@ -159,7 +188,9 @@
                                         $(this).css("cursor", "pointer");
                                     });
 
-                                    //Scripts pour les recherches de babysitters
+                                    //----------------------------------------------
+                                    //Javascript pour les recherches de babysitters
+                                    //----------------------------------------------
                                     $("#indexP_listBaby tr:not(:eq(0)) td").click(function () {
                                         var emailBabysitter = $(this).parent().children().eq(3).text();
                                         var allTr = $(this).parent().parent().children();
@@ -168,6 +199,7 @@
                                             $(allTr).eq(i).css("background-color", "snow");
                                         }
                                         $(this).parent().css("background-color", "gainsboro");
+                                        $(this).parent().css("cursor", "pointer");
 
                                         $("#indexP_mailSelected").val(emailBabysitter);
                                     });
