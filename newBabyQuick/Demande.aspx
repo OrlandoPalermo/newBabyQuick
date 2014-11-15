@@ -3,6 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="indexP" runat="server">
+    <% 
+        try
+        {
+            newBabyQuick.Membre m = (newBabyQuick.Membre)Session["membre"];
+
+            if (m.Type != 2)
+            {
+                Response.Redirect("index.aspx");
+            }
+        }
+        catch (Exception E)
+        {
+            Response.Redirect("index.aspx");
+        }
+       %>
     <style>
     </style>
     <div class="container" style="position: relative; top: 15px; margin-bottom: 60px;">

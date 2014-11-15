@@ -36,6 +36,7 @@ namespace newBabyQuick
         }
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
+            Session.Clear();
             Context.GetOwinContext().Authentication.SignOut();
         }
 
