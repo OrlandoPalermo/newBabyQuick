@@ -83,7 +83,7 @@
                             <a href="Search.aspx" class="btn btn-default btn-success btn-lg">Rechercher un babysitter</a>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <a href="#" class="btn btn-default btn-warning btn-lg">Voir les demandes récentes</a>
+                            <a href="DemandesRecentes.aspx" class="btn btn-default btn-warning btn-lg">Voir les demandes récentes</a>
                         </div>
                     </div>
 

@@ -128,12 +128,43 @@ namespace tab_control
         {
             bdd.getConnection().Open();
 
-            SqlCommand req = new SqlCommand("UPDATE RendezVous SET id_babysitter = null WHERE id = @id", bdd.getConnection());
+            SqlCommand req = new SqlCommand("UPDATE RendezVous SET id_babysitter = 0 WHERE id = @id", bdd.getConnection());
             req.Parameters.Add("@id", SqlDbType.Int).Value = idRdv;
 
             req.ExecuteNonQuery();
 
             bdd.getConnection().Close();
+        }
+
+    
+        public ObservableCollection<RendezVous> getDemandesRecentes(int idParent) {
+            bdd.getConnection().Open();
+
+            SqlCommand req = new SqlCommand("SELECT * FROM RendezVous WHERE id_membre = @id", bdd.getConnection());
+            req.Parameters.Add("@id", SqlDbType.Int).Value = idParent;
+
+            ObservableCollection<RendezVous> rdvsRecents = new ObservableCollection<RendezVous>();
+
+            SqlDataReader read = req.ExecuteReader();
+
+            if (read.HasRows) {
+                while (read.Read()) {
+                    RendezVous rdv = new RendezVous(read["date_emission"].ToString(), read["date_prevu"].ToString(), read["date_fin"].ToString(), int.Parse(read["id_babysitter"].ToString()), int.Parse(read["id_membre"].ToString()), read["note"].ToString());
+
+                    try
+                    {
+                       rdv.Accept = short.Parse(read["accept"].ToString());
+                    }
+                    catch (Exception parse)
+                    {
+                        rdv.Accept = 0;
+                    }
+                    rdvsRecents.Add(rdv);
+                }
+            }
+
+            bdd.getConnection().Close();
+            return rdvsRecents;
         }
     }
 }
