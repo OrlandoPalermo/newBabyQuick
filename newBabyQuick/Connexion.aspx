@@ -42,14 +42,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            <asp:CheckBox runat="server" ID="RememberMe" />
-                            <asp:Label runat="server" AssociatedControlID="RememberMe">Mémoriser le mot de passe ?</asp:Label>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
                     <asp:Button runat="server" Text="Se connecter" OnClick="Login" CssClass="btn btn-success text-center" />
                 </div>

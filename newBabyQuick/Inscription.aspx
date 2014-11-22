@@ -81,6 +81,7 @@
                 <div class="row">
 
                     <asp:TextBox runat="server" ID="lieux" CssClass="form-control col-lg-12"></asp:TextBox>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="lieux" CssClass="text-danger" ErrorMessage="Le champ est obligatoire"></asp:RequiredFieldValidator>
                     <div id="map-canvas" class="col-lg-12"></div>
 
                 </div>
@@ -104,6 +105,7 @@
                             <label for="<%= nbEnfants.ClientID %>" class="col-lg-2">Nombre d'enfants : </label>
                             <div class="col-lg-4">
                                 <asp:TextBox runat="server" CssClass="form-control" ID="nbEnfants" />
+                                <asp:CompareValidator runat="server" ControlToValidate="nbEnfants" ErrorMessage="Merci de renseigner uniquement des chiffres !" CssClass="text-danger" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
                             </div>
                         </div>
                     </div>
@@ -118,7 +120,7 @@
                     </div>
                 </div>
                 <div class="row" style="text-align: center;">
-                    <asp:Button runat="server" CssClass="btn btn-success" Text="S'inscrire" />
+                    <asp:Button runat="server" ID="SendInscription" CssClass="btn btn-success" Text="S'inscrire" Enabled="false" />
                 </div>
             </div>
             <asp:Label runat="server" ID="testAff"></asp:Label>
@@ -132,11 +134,13 @@
             $("#labelP").click(function () {
                 $("#boxParents").fadeIn();
                 $("#boxBabysitter").fadeOut();
+                $("#<%= SendInscription.ClientID %>").removeAttr("disabled");
             });
 
             $("#labelB").click(function () {
                 $("#boxParents").fadeOut();
                 $("#boxBabysitter").fadeIn();
+                $("#<%= SendInscription.ClientID %>").removeAttr("disabled");
             });
 
             $("#<%= dateDispo.ClientID %>").datepicker({

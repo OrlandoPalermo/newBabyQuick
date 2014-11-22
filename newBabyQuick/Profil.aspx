@@ -23,7 +23,7 @@
 
 
                     <% newBabyQuick.Membre m = Session["membre"] as newBabyQuick.Membre;
-                       if (m.Type == 1)
+                       if (m != null && m.Type == 1)
                        { %>
                     <div class="row">
                         <div class="form-group">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <% }
-                       else
+                       else if (m != null && m.Type == 2)
                        { %>
                     <div class="row">
                         <div class="form-group">
@@ -49,7 +49,9 @@
                             <span id="etat" class="glyphicon glyphicon-<%= glyphiconEtat %>"></span>
                         </div>
                     </div>
-                    <% } %>
+                    <% } else {
+                           Response.Redirect("index.aspx");   
+                       }%>
 
                     <div style="position: relative; top: 10px;">
                         <asp:TextBox runat="server" ID="lieux" CssClass="form-control"></asp:TextBox>

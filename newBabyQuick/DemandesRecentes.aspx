@@ -2,6 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="indexP" runat="server">
+     <% 
+        try
+        {
+            newBabyQuick.Membre m = (newBabyQuick.Membre)Session["membre"];
+
+            if (m.Type != 1)
+            {
+                Response.Redirect("index.aspx");
+            }
+        }
+        catch (Exception E)
+        {
+            Response.Redirect("index.aspx");
+        }
+       %>
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">

@@ -11,10 +11,10 @@
             <div class="panel-heading text-center"><h3>Service mail</h3>
                 <div class="btn-group">
                       <label class="btn btn-default">
-                         <input type="radio" name="typeMail" id="btnInbox" />Réception <span class="glyphicon glyphicon-inbox"></span>
+                         <input type="radio" name="typeMail" id="btnInbox" style="display: none;"/>Réception <span class="glyphicon glyphicon-inbox"></span>
                       </label>
                       <label class="btn btn-default">
-                         <input type="radio" name="typeMail" id="btnWrite"/>Ecrire <span class="glyphicon glyphicon-pencil"></span>
+                         <input type="radio" name="typeMail" id="btnWrite" style="display: none;"/>Envoyer <span class="glyphicon glyphicon-pencil"></span>
                      </label>
                 </div>
             </div>

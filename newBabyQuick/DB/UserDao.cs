@@ -24,7 +24,7 @@ namespace newBabyQuick
             bdd.getConnection().Open();
             string requete = "INSERT INTO Membre"
                 + "(nom, prenom, gsm, email, types_membre, nb_enfants, date_dispo, date_fin_dispo, password, id_asp, lieux)"
-                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, @date_dispo, @date_fin_dispo, @password, @id_asp, @lieux)";
+                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, @date_dispo, @date_fin_dispo, HASHBYTES('SHA1', @password), @id_asp, @lieux)";
             SqlCommand command = new SqlCommand(requete, bdd.getConnection());
             command.Parameters.Add("@nom", SqlDbType.VarChar).Value = b.Nom;
             command.Parameters.Add("@prenom", SqlDbType.VarChar).Value = b.Prenom;
@@ -47,7 +47,7 @@ namespace newBabyQuick
             bdd.getConnection().Open();
             string requete = "INSERT INTO Membre"
                 + "(nom, prenom, gsm, email, types_membre, nb_enfants, password, lieux)"
-                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, @password, @lieux)";
+                + "VALUES(@nom, @prenom, @gsm, @email, @types_membre, @nb_enfants, HASHBYTES('SHA1', @password), @lieux)";
             SqlCommand command = new SqlCommand(requete, bdd.getConnection());
             command.Parameters.Add("@nom", SqlDbType.VarChar).Value = p.Nom;
             command.Parameters.Add("@prenom", SqlDbType.VarChar).Value = p.Prenom;
@@ -185,7 +185,7 @@ namespace newBabyQuick
         public List<Babysitter> findAllBabySitter(String dateD, String dateF)
         {
             bdd.getConnection().Open();
-            SqlCommand command = new SqlCommand("SELECT nom, prenom , gsm, email, types_membre, lieux FROM Membre WHERE types_membre = 2 AND id IN(SELECT id FROM Membre WHERE date_dispo <= @dateD AND date_fin_dispo >= @dateF)", bdd.getConnection());
+            SqlCommand command = new SqlCommand("SELECT nom, prenom , gsm, email, types_membre, lieux FROM Membre WHERE types_membre = 2 AND id IN(SELECT id FROM Membre WHERE date_dispo <= @dateD AND date_fin_dispo >= @dateF AND confirm = 1)", bdd.getConnection());
             command.Parameters.Add("@dateD", SqlDbType.Date).Value = dateD;
             command.Parameters.Add("@dateF", SqlDbType.Date).Value = dateF;
             SqlDataReader r = command.ExecuteReader();
