@@ -11,7 +11,8 @@ namespace newBabyQuick.Classes
         private short vu, typeNotif;
         private String message, dateEmission;
         public const short MAIL = 1,
-                           DEMANDE = 2;
+                           DEMANDE = 2,
+                           ACCEPTE = 3;
 
         public NotificationLive(int idMembre, short type)
         {
@@ -53,6 +54,7 @@ namespace newBabyQuick.Classes
                 {
                     case MAIL:    tmp += "Vous avez reçu un mail !"; break;
                     case DEMANDE: tmp += "Vous avez reçu une nouvelle demande !"; break;
+                    case ACCEPTE: tmp += "Votre demande a été acceptée !"; break;
                     default:      tmp += "Vous n'avez pas de notification"; break;
                 }
 

@@ -1,4 +1,5 @@
 ﻿using newBabyQuick;
+using newBabyQuick.Classes;
 using newBabyQuick.DB;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,11 @@ namespace tab_control
     class RendezVousDao
     {
         private Bdd bdd;
-
+        private NotificationLiveDao not;
         public RendezVousDao(Bdd b)
         {
             this.bdd = b;
+            not = new NotificationLiveDao(b);
         }
 
         public ObservableCollection<RendezVous> read()
@@ -105,6 +107,7 @@ namespace tab_control
                     int idMembre = int.Parse(reader["id_membre"].ToString());
 
                     RendezVous rendezV = new RendezVous(reader["date_emission"] as string, reader["date_prevu"] as string, reader["date_fin"] as string, idBabysitter, idMembre, reader["note"] as string);
+                    bdd.getConnection().Close();
                     return rendezV;
                 }
             }
@@ -122,6 +125,8 @@ namespace tab_control
             req.ExecuteNonQuery();
 
             bdd.getConnection().Close();
+            not.add(new NotificationLive(getRendezVous(idRdv).IdParent, NotificationLive.ACCEPTE));
+
         }
 
         public void refused(int idRdv)

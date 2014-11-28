@@ -53,6 +53,11 @@ namespace newBabyQuick
         protected void timerList_Tick(object sender, EventArgs e)
         {
             Membre member = Session["membre"] as Membre;
+
+            if (member == null)
+            {
+                Response.Redirect("index.aspx");
+            }
             mDao.getMessages(member.Id);
 
             messages = mDao.getMessages(member.Id);
