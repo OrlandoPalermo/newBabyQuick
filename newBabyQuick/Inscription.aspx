@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label for="<%= password.ClientID %>" class="col-lg-2">Mot de passe</label>
                         <div class="col-lg-4">
-                            <asp:TextBox runat="server" CssClass="form-control" ID="password"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="password" CssClass="form-control" ID="password"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="password" CssClass="text-danger" ErrorMessage="Le champ est obligatoire"></asp:RequiredFieldValidator>
                         </div>
                     </div>
