@@ -36,7 +36,7 @@ namespace newBabyQuick.DB
             bdd.getConnection().Open();
             ObservableCollection<NotificationLive> notifs = new ObservableCollection<NotificationLive>();
 
-            SqlCommand req = new SqlCommand("SELECT TOP 5 id, type_notif, date_emission FROM Notifications WHERE id_membre = @idM ORDER BY date_emission", bdd.getConnection());
+            SqlCommand req = new SqlCommand("SELECT TOP 5 id, type_notif, date_emission FROM Notifications WHERE id_membre = @idM ORDER BY date_emission DESC", bdd.getConnection());
 
             req.Parameters.Add("@idM", SqlDbType.Int).Value = idMembre;
 

@@ -20,11 +20,10 @@
        %>
     <style>
         .freeOption {
-            display: none;
+            display: inline-block;
         }
     </style>
     <div class="container" style="margin-bottom: 60px;">
-        <h2 class="page-header">Rechercher un babysitter</h2>
         <div class="row alert alert-danger" style="padding: 1%;">
             <strong>Avant de commencer, voulez-vous rechercher votre babysitter :</strong>
             <div class="row">
@@ -77,7 +76,7 @@
                                 </asp:DataGrid>
 
                             </div>
-                            <div class="alert alert-info freeOption" id="babysitterMasque"></div>
+                            <div class="alert alert-info freeOption" id="babysitterMasque">En attente d'une recherche...</div>
                         </div>
                     </ContentTemplate>
 
@@ -108,6 +107,7 @@
     </div>
     <script>
         $(document).ready(function () {
+
             $("#indexP_btnVousMeme").change(function () {
                 $("#indexP_listBaby").removeClass("hide").addClass("show");
                 $("#panelDemande").show(500);

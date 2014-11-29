@@ -47,6 +47,8 @@ namespace newBabyQuick
                     RendezVousDao rdvDao = new RendezVousDao(bdd);
                     rdvDao.add(rdv);
                     notDao.add(new NotificationLive(rdv.IdBabysitter, NotificationLive.DEMANDE));
+
+                    Response.Redirect("index.aspx");
                 }
                 
             }
@@ -69,6 +71,7 @@ namespace newBabyQuick
         {
             if (dateP.Text != "" && dateF.Text != "")
             {
+                AdresseParent.Visible = true;
                 AdresseParent.Text = ((Parent)Session["membre"]).Lieux;
                 List<Babysitter> babysitter = uD.findAllBabySitter(dateP.Text as string, dateF.Text as string);
 
