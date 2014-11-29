@@ -101,7 +101,6 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6"><a href="Demande.aspx" class="btn btn-default">Consulter ses demandes</a></div>
-                            <div class="col-lg-6"><a class="btn btn-default">Messages <span class="glyphicon glyphicon-envelope"></span></a></div>
                         </div>
                     </div>
                 </div>
